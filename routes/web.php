@@ -19,21 +19,28 @@ use App\Http\Controllers\Admin\TransaksiController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/dashboard', [LoginController::class, 'authenticate'])->name('dashboard');
+Route::resource('/pegawai', PegawaiController::class);
+Route::resource('/pelanggan', PelangganController::class);
+Route::resource('/stok', ProdukController::class);
+Route::resource('/kategori', KategoriController::class);
+Route::get('/pesanan', [TransaksiController::class, 'index']);
+Route::get('/penjualan', [TransaksiController::class, 'penjualan']);
+Route::get('/pembelian', [TransaksiController::class, 'pembelian']);
 // Route::get('/login', [LoginController::class, 'index']);
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Route::get('/dashboard', [LoginController::class, 'authenticate'])->name('dashboard');
-    Route::resource('/pegawai', PegawaiController::class);
-    Route::resource('/pelanggan', PelangganController::class);
-    Route::resource('/stok', ProdukController::class);
-    Route::resource('/kategori', KategoriController::class);
-    Route::get('/pesanan', [TransaksiController::class, 'index']);
-    Route::get('/penjualan', [TransaksiController::class, 'penjualan']);
-    Route::get('/pembelian', [TransaksiController::class, 'pembelian']);
+    // Route::resource('/pegawai', PegawaiController::class);
+    // Route::resource('/pelanggan', PelangganController::class);
+    // Route::resource('/stok', ProdukController::class);
+    // Route::resource('/kategori', KategoriController::class);
+    // Route::get('/pesanan', [TransaksiController::class, 'index']);
+    // Route::get('/penjualan', [TransaksiController::class, 'penjualan']);
+    // Route::get('/pembelian', [TransaksiController::class, 'pembelian']);
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
