@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ProdukController extends Controller
 {
@@ -15,7 +15,7 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        return view('admin.produk.stok.index', [
+        return view('admin/produk/index', [
             'title' => 'Daftar Produk'
         ]);
     }
@@ -27,7 +27,7 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        return view('admin.produk.stok.tambah', [
+        return view('admin/produk/tambah', [
             'title' => 'Tambah Produk Baru'
         ]);
     }

@@ -11,10 +11,10 @@
                 </div>
                 <ol class="breadcrumb page-breadcrumb pull-right">
                     <li><i class="fa fa-home"></i>&nbsp;
-                        <a class="parent-item" href="/">Beranda</a>&nbsp;
+                        <a class="parent-item" href="/admin/dashboard">Beranda</a>&nbsp;
                         <i class="fa fa-angle-right"></i>
                     </li>
-                    <li><a class="parent-item" href="/pegawai">Pegawai</a>&nbsp;<i class="fa fa-angle-right"></i>
+                    <li><a class="parent-item" href="/admin/pegawai">Pegawai</a>&nbsp;<i class="fa fa-angle-right"></i>
                     </li>
                     <li class="active">{{ $title }}</li>
                 </ol>
@@ -25,7 +25,7 @@
             <div class="col-md-12 col-sm-12">
                 <div class="card card-box">
                     <div class="card-head">
-                        <header>Simple Form</header>
+                        <header>Form {{ $title }}</header>
                         <button id="panel-button"
                             class="mdl-button mdl-js-button mdl-button--icon pull-right"
                             data-upgraded=",MaterialButton">
@@ -43,7 +43,7 @@
                     </div>
                     <div class="card-body " id="bar-parent">
                         <div class="row">
-                            <form action="/pegawai" method="post">
+                            <form action="{{ route('pegawai.tambah') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="nama">Nama Pegawai</label>
@@ -61,6 +61,10 @@
                                     <input type="text" class="form-control" id="kode" name="kode">
                                 </div>
                                 <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email">
+                                </div>
+                                <div class="form-group">
                                     <label for="username">Username</label>
                                     <input type="text" class="form-control" id="username" name="username">
                                 </div>
@@ -68,7 +72,7 @@
                                     <label for="password">Password</label>
                                     <input type="password" class="form-control" id="password" name="password">
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label class="control-label col-md-3">Mulai Bekerja</label>
                                     <div class="input-append date">
                                         <div id="dateIcon" class="input-group datePicker">
@@ -83,7 +87,7 @@
                                             </span>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label for="kontak">Kontak</label>
                                     <input type="text" class="form-control" id="kontak" name="kontak">
@@ -105,12 +109,8 @@
                                     <label for="alamat">Alamat</label>
                                     <textarea name="alamat" id="alamat" class="form-control-textarea" rows="5"></textarea>
                                 </div>
-                                <div class="form-actions">
-                                    <div class="offset-md-4 col-md-8">
-                                        <button type="submit" class="btn btn-info m-r-20">Submit</button>
-                                        <button type="button" class="btn btn-default">Cancel</button>
-                                    </div>
-                                </div>
+                                <button type="submit" class="btn btn-info m-r-20">Submit</button>
+                                <button type="button" class="btn btn-default">Cancel</button>
                             </form>
                         </div>
                     </div>

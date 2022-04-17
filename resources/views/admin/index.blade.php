@@ -7,7 +7,7 @@
             <div class="page-bar">
                 <div class="page-title-breadcrumb">
                     <div class=" pull-left">
-                        <div class="page-title">Selamat Datang {{ auth()->user()->name }}!</div>
+                        <div class="page-title">Dashboard {{ ucwords(auth()->user()->role) }}!</div>
                     </div>
                     <ol class="breadcrumb page-breadcrumb pull-right">
                         <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="#">Home</a>&nbsp;<i
@@ -23,9 +23,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="overview-panel purple">
                             <div class="symbol">
-                                <a href="/pegawai">
-                                    <i class="fa fa-users usr-clr"></i>
-                                </a>
+                                <i class="fa fa-users usr-clr"></i>
                             </div>
                             <div class="value white">
                                 <p class="sbold addr-font-h1" data-counter="counterup">0</p>
@@ -34,11 +32,9 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
-                        <div class="overview-panel deepPink-bgcolor">
+                        <div class="overview-panel blue-bgcolor">
                             <div class="symbol">
-                                <a href="/stok">
-                                    <i class="fa fa-cubes"></i>
-                                </a>
+                                <i class="fa fa-cubes"></i>
                             </div>
                             <div class="value white">
                                 <p class="sbold addr-font-h1" data-counter="counterup">0</p>
@@ -49,9 +45,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="overview-panel orange">
                             <div class="symbol">
-                                <a href="/pesanan">
-                                    <i class="fa fa-money"></i>
-                                </a>
+                                <i class="fa fa-handshake-o"></i>
                             </div>
                             <div class="value white">
                                 <p class="sbold addr-font-h1" data-counter="counterup">0</p>
@@ -60,15 +54,35 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
-                        <div class="overview-panel blue-bgcolor">
+                        <div class="overview-panel purple">
                             <div class="symbol">
-                                <a href="/pelanggan">
-                                    <i class="fa fa-address-card"></i>
-                                </a>
+                                <i class="fa fa-user-circle"></i>
                             </div>
                             <div class="value white">
                                 <p class="sbold addr-font-h1" data-counter="counterup">0</p>
                                 <p>PELANGGAN</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="overview-panel deepPink-bgcolor">
+                            <div class="symbol">
+                                <i class="fa fa-home"></i>
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" data-counter="counterup">0</p>
+                                <p>HUTANG TOKO</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="overview-panel deepPink-bgcolor">
+                            <div class="symbol">
+                                <i class="fa fa-bank"></i>
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" data-counter="counterup">0</p>
+                                <p>HUTANG PABRIK</p>
                             </div>
                         </div>
                     </div>
@@ -77,7 +91,7 @@
             <!-- end widget -->
             <!-- chart start -->
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <div class="card card-box">
                         <div class="card-head">
                             <header>Penjualan</header>
@@ -89,12 +103,12 @@
                         </div>
                         <div class="card-body">
                             <div class="recent-report__chart">
-                                <div id="chart1"></div>
+                                <div id="chart2"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                {{-- <div class="col-sm-6">
                     <div class="card card-box">
                         <div class="card-head">
                             <header>Pembelian</header>
@@ -110,7 +124,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <!-- Chart end -->
         </div>

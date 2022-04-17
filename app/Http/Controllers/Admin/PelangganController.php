@@ -15,7 +15,7 @@ class PelangganController extends Controller
      */
     public function index()
     {
-        return view('admin.kontak.pelanggan.index', [
+        return view('admin/kontak/pelanggan/index', [
             'title' => 'Daftar Pelanggan'
         ]);
     }

@@ -105,7 +105,8 @@
 	<script src="{{ asset('admin/js/pages/date-time/date-time.init.js') }}"></script>
     <!--apex chart-->
     <script src="{{ asset('admin/plugins/apexcharts/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('admin/js/pages/chart/chartjs/home-data.js') }}"></script>
+	<!-- Page Specific JS File -->
+	<script src="{{ asset('admin/js/pages/chart/apex/apexcharts.data.js') }}"></script>
     <!-- summernote -->
     <script src="{{ asset('admin/plugins/summernote/summernote.js') }}"></script>
     <script src="{{ asset('admin/js/pages/summernote/summernote-data.js') }}"></script>

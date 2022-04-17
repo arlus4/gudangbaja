@@ -44,28 +44,56 @@
                             <table id="example1" class="display" style="width:100%;">
                                 <thead>
                                     <tr>
+                                        <th>Kode</th>
                                         <th>Nama</th>
-                                        <th>Kontak</th>
                                         <th>Alamat</th>
-                                        <th>Status</th>
-                                        <th>Mulai</th>
+                                        <th>Kontak</th>
+                                        <th>Sales</th>
+                                        <th>Foto KTP</th>
+                                        <th>Foto Toko</th>
+                                        <th>Nota</th>
+                                        <th>Jatuh Tempo</th>
+                                        <th>Keterangan</th>
+                                        <th>Limit</th>
+                                        <th>Total Pembelian</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><a href="#">Tiger Nixon</a></td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>Verif/Not Verif</td>
-                                        <td>2011/04/25</td>
-                                        <td>
-                                            <a href="#" class="btn btn-primary btn-xs">
-                                                <i class="fa fa-pencil"></i>
-                                            </a>
-                                            <a href="#" class="btn btn-danger btn-xs">
-                                                <i class="fa fa-trash-o "></i>
-                                            </a>
+                                        <td>...</td>
+                                        <td>...</td>
+                                        <td>...</td>
+                                        <td>....</td>
+                                        <td>....</td>
+                                        <td>....</td>
+                                        <td>....</td>
+                                        <td>....</td>
+                                        <td>....</td>
+                                        <td>Lunas/Belum</td>
+                                        <td>....</td>
+                                        <td>....</td>
+                                        <td class="valigntop">
+                                            <div class="btn-group">
+                                                <button class="btn btn-xs deepPink-bgcolor dropdown-toggle no-margin" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Actions <i class="fa fa-angle-down"></i>
+                                                </button>
+                                                <ul class="dropdown-menu pull-left" role="menu">
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <i class="icon-info"></i> Lihat </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <i class="icon-note"></i> Ubah </a>
+                                                    </li>
+                                                    <li class="divider"> </li>
+                                                    <li>
+                                                        <a href="javascript:;">
+                                                            <i class="icon-trash"></i> Hapus </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </td>
                                     </tr>
                                 </tbody>

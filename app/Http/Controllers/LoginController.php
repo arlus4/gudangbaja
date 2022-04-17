@@ -10,33 +10,42 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('auth.login');
-    }
-
-    public function authenticate(Request $request)
-    {
+        // return view('auth.login');
         $role = Auth::user()->role;
+        // $sebagai = Auth::pegawais()->sebagai;
         // admin
         if ($role == 'admin') {
             return view('admin.index');
         }
         // kasir
-        if ($role == 'kasir') {
+        elseif ($role == 'kasir') {
             return view('kasir.index');
         }
         // sales
-        if ($role == 'sales') {
+        elseif ($role == 'sales') {
             return view('sales.index');
         }
-        //guest
+        //pelanggan
         else {
-            return view('home.index');
+            return view('admin.index');
         }
     }
 
-    public function logout()
+    public function authenticate(Request $request)
+    {
+    }
+
+    /**
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('/login');
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }

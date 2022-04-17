@@ -40,6 +40,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'pegawai' => [
+            'driver' => 'session',
+            'provider' => 'pegawais',
+        ],
+        'pelanggan' => [
+            'driver' => 'session',
+            'provider' => 'pelanggans',
+        ],
     ],
 
     /*
@@ -64,11 +72,14 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'pegawais' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Pegawai::class,
+        ],
+        'pelanggans' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Pelanggan::class,
+        ],
     ],
 
     /*
@@ -93,6 +104,16 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        'pegawais' => [
+            'provider' => 'pegawais',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'pelanggans' => [
+            'provider' => 'pelanggans',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ]
     ],
 
     /*

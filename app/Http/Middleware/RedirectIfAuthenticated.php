@@ -23,10 +23,14 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
+                if ($guard == 'pegawai') {
+                    return redirect(RouteServiceProvider::PEGAWAI);
+                } elseif ($guard == 'pelanggan') {
+                    return redirect(RouteServiceProvider::PELANGGAN);
+                }
                 return redirect(RouteServiceProvider::HOME);
             }
         }
-
-        return $next($request);
+        // return $next($request);
     }
 }

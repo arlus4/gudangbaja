@@ -15,6 +15,27 @@ class CreatePegawaisTable extends Migration
     {
         Schema::create('pegawais', function (Blueprint $table) {
             $table->id();
+            // $table->foreignId('produk_id');
+            $table->foreignId('pelanggan_id');
+            $table->foreignId('user_id');
+            $table->string('kode')->unique();
+            $table->string('nama');
+            $table->string('slug')->unique();
+            $table->string('email');
+            $table->string('username')->unique();
+            $table->string('password');
+            $table->string('kontak');
+            $table->string('pegang_toko');
+            $table->string('ktp')->nullable();
+            $table->string('keterangan')->nullable();
+            $table->string('photo', 2048)->nullable();
+            $table->text('alamat');
+            $table->string('sebagai')->default('sales');
+            $table->string('omset')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->rememberToken();
+            $table->foreignId('current_team_id')->nullable();
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
     }

@@ -2,16 +2,22 @@
 
 namespace App\Models;
 
+use App\Models\Produk;
+use App\Models\Pegawai;
+use App\Models\Pelanggan;
+use App\Models\Transaksi;
+use Laravel\Sanctum\HasApiTokens;
+use Laravel\Jetstream\HasProfilePhoto;
+use Illuminate\Notifications\Notifiable;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
-use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    use Sluggable;
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
@@ -19,13 +25,21 @@ class User extends Authenticatable
     use TwoFactorAuthenticatable;
 
     /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    // protected $guard = 'users';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
     protected $fillable = [
-        'name',
-        // 'username',
+        'nama',
+        'username',
+        'is_admin',
         'email',
         'password',
     ];
@@ -59,4 +73,38 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+    //pakai third-library EloquentSluggable
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'nama'
+            ]
+        ];
+    }
+
+    public function pegawai()
+    {
+        return $this->hasMany(Pegawai::class);
+    }
+
+    public function produks()
+    {
+        return $this->hasMany(Produk::class);
+    }
+
+    public function pelanggans()
+    {
+        return $this->hasMany(Pelanggan::class);
+    }
+
+    public function transaksis()
+    {
+        return $this->hasMany(Transaksi::class);
+    }
 }

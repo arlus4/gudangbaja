@@ -35,95 +35,56 @@
                             <div class="col-md-6 col-sm-6 col-6">
                                 <div class="btn-group">
                                     <button id="addRow1" class="btn btn-info">
-                                        Tambah Pesanan Baru <i class="fa fa-plus"></i>
+                                        Tambah Pembelian Baru <i class="fa fa-plus"></i>
                                     </button>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-6">
-                                <div class="btn-group pull-right">
-                                    <button class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
-                                        data-bs-toggle="dropdown">Tools
-                                        <i class="fa fa-angle-down"></i>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li>
-                                            <a href="javascript:;">
-                                                <i class="fa fa-print"></i> Print </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <i class="fa fa-file-pdf-o"></i> Save as PDF </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <i class="fa fa-file-excel-o"></i> Export to Excel </a>
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="table-scrollable">
-                            <table class="table table-striped table-bordered table-hover table-checkable order-column" id="example4">
+                            <table id="example1" class="display" style="width:100%;">
                                 <thead>
                                     <tr>
-                                        <th>
-                                            <label class="rt-chkbox rt-chkbox-single rt-chkbox-outline">
-                                                <input type="checkbox" class="group-checkable"
-                                                    data-set="#sample_1 .checkboxes" />
-                                                <span></span>
-                                            </label>
-                                        </th>
-                                        <th> Username </th>
-                                        <th> Email </th>
-                                        <th> Status </th>
-                                        <th> Joined </th>
-                                        <th> Actions </th>
+                                        <th> Tanggal Pesan </th>
+                                        <th> Kode Barang </th>
+                                        <th> Nama Barang </th>
+                                        <th> Jumlah </th>
+                                        <th> Total Harga </th>
+                                        <th> Nota </th>
+                                        <th> Harga Dasar </th>
+                                        <th> Harga Supplier </th>
+                                        <th> Harga Retail </th>
+                                        <th> Aksi </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="odd gradeX">
-                                        <td>
-                                            <label class="rt-chkbox rt-chkbox-single rt-chkbox-outline">
-                                                <input type="checkbox" class="checkboxes" value="1" />
-                                                <span></span>
-                                            </label>
-                                        </td>
-                                        <td> shuxer </td>
-                                        <td>
-                                            <a href="https://radixtouch.com/cdn-cgi/l/email-protection#82f1eaf7fae7f0c2e5efe3ebeeace1edef"> <span class="__cf_email__" data-cfemail="a2d1cad7dac7d0e2c5cfc3cbce8cc1cdcf">[email&#160;protected]</span> </a>
-                                        </td>
-                                        <td>
-                                            <span class="label label-sm label-success"> Approved </span>
-                                        </td>
-                                        <td> 12 Jan 2012 </td>
+                                        <td> ... </td>
+                                        <td> ... </td>
+                                        <td> ... </td>
+                                        <td> ... </td>
+                                        <td> ... </td>
+                                        <td> ... </td>
+                                        <td> ... </td>
+                                        <td> ... </td>
+                                        <td> ... </td>
                                         <td class="valigntop">
                                             <div class="btn-group">
-                                                <button
-                                                    class="btn btn-xs deepPink-bgcolor dropdown-toggle no-margin"
-                                                    type="button" data-bs-toggle="dropdown"
-                                                    aria-expanded="false">
-                                                    Actions
-                                                    <i class="fa fa-angle-down"></i>
+                                                <button class="btn btn-xs deepPink-bgcolor dropdown-toggle no-margin" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Actions <i class="fa fa-angle-down"></i>
                                                 </button>
                                                 <ul class="dropdown-menu pull-left" role="menu">
                                                     <li>
                                                         <a href="javascript:;">
-                                                            <i class="icon-docs"></i> New Post </a>
+                                                            <i class="icon-info"></i> Lihat </a>
                                                     </li>
                                                     <li>
                                                         <a href="javascript:;">
-                                                            <i class="icon-tag"></i> New Comment </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="icon-user"></i> New User </a>
+                                                            <i class="icon-note"></i> Ubah </a>
                                                     </li>
                                                     <li class="divider"> </li>
                                                     <li>
                                                         <a href="javascript:;">
-                                                            <i class="icon-flag"></i> Comments
-                                                            <span class="badge badge-success">4</span>
-                                                        </a>
+                                                            <i class="icon-trash"></i> Hapus </a>
                                                     </li>
                                                 </ul>
                                             </div>

@@ -15,65 +15,68 @@
                             <img src="{{ asset('admin/img/dp.jpg') }}" class="img-circle user-img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <h4> {{ auth()->user()->name }}</h4>
-                            <a href="#"><i class="fa fa-circle user-online"></i>
-                                <span class="txtOnline">Online</span>
-                            </a>
+                            <h4> {{ auth()->user()->nama }}</h4>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item start active open">
-                    <a href="/dashboard" class="nav-link nav-toggle">
+                    <a href="/admin/dashboard" class="nav-link nav-toggle">
                     <i class="material-icons">dashboard</i>
                         <span class="title">Beranda</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle">
-                        <i class="material-icons">face</i>
-                        <span class="title">User</span>
-                        <span class="arrow "></span>
+                        <i class="material-icons">group</i>
+                        <span class="title">Pegawai</span>
+                        <span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item">
-                            <a href="/pegawai" class="nav-link">
-                                <i class="fa fa-user-o"></i> Pegawai 
+                            <a href="{{ route('admin.index') }}" class="nav-link">
+                                <i class="fa fa-child"></i> Admin
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/pelanggan" class="nav-link nav-toggle">
-                                <i class="fa fa-address-card-o"></i> Pelanggan
+                            <a href="{{ route('sales.index') }}" class="nav-link">
+                                <i class="fa fa-handshake-o"></i> Sales 
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('kasir.index') }}" class="nav-link">
+                                <i class="fa fa-desktop"></i> Kasir 
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('pelanggan.index') }}" class="nav-link">
+                    <i class="material-icons">person</i>
+                        <span class="title">Pelanggan</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="material-icons">storage</i>
                         <span class="title">Produk</span>
-                        <span class="arrow "></span>
+                        <span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item">
-                            <a href="/kategori" class="nav-link nav-toggle">
-                                <i class="fa fa-bookmark"></i> Kategori
+                            <a href="{{ route('produk.index') }}" class="nav-link">
+                                <i class="fa fa-cubes"></i> Stok Barang
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/stok" class="nav-link">
-                                <i class="fa fa-cubes"></i> Stok 
-                            </a>
-                        </li>
-                        {{-- <li class="nav-item">
-                            <a href="/diskon" class="nav-link nav-toggle">
-                                <i class="fa fa-handshake-o"></i> Diskon
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-building"></i> Harga Supplier 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/diskon" class="nav-link nav-toggle">
-                                <i class="fa fa-bank"></i> Pajak
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-home"></i> Harga Retail 
                             </a>
-                        </li> --}}
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -84,17 +87,17 @@
                     </a>
                     <ul class="sub-menu">                        
                         <li class="nav-item">
-                            <a href="/pesanan" class="nav-link">
+                            <a href="{{ route('pesanan.index') }}" class="nav-link">
                                 <i class="fa fa-edit"></i> Pesanan 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/penjualan" class="nav-link nav-toggle">
-                                <i class="fa fa-mail-forward"></i> Penjualan
+                            <a href="{{ route('pre_order.index') }}" class="nav-link">
+                                <i class="fa fa-shopping-cart"></i> Pre-Order
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/pembelian" class="nav-link nav-toggle">
+                            <a href="{{ route('pembelian.index') }}" class="nav-link">
                                 <i class="fa fa-mail-reply"></i> Pembelian
                             </a>
                         </li>
@@ -165,7 +168,7 @@
                         </li> --}}
                     </ul>
                 </li>
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="material-icons">business</i>
                         <span class="title">Manajemen Cabang</span>
@@ -183,7 +186,7 @@
                             </a>
                         </li>
                     </ul>
-                </li> --}}
+                </li>
                 {{-- <li class="nav-item">
                     <a href="#" class="nav-link nav-toggle">
                         <i class="material-icons">build</i>
