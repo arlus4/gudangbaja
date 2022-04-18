@@ -83,7 +83,7 @@
                                     <label for="password">Password</label>
                                     <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label class="control-label col-md-3">List Toko yang Dipegang</label>
                                     <select class="form-control select2-multiple" id="pegang_toko" name="pegang_toko" multiple>
                                         <optgroup label="Pilih Toko">
@@ -97,7 +97,7 @@
                                     <div class="form-group has-success">
                                         <span class="help-block">Tekan CTRL + Click</span>
                                     </div>
-                                </div>
+                                </div> --}}
                                 {{-- <div class="form-group">
                                     <label class="control-label">Toko yang Dipegang</label>
                                     <input type="text" class="tags tags-input" data-type="tags"
