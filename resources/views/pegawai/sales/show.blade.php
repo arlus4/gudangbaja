@@ -1,5 +1,5 @@
-@extends('admin/layouts/main')
-@section('admin/index')
+@extends('pegawai/kasir/layouts/main')
+@section('pegawai/kasir/index')
 
 <!-- start page content -->
 <div class="page-content-wrapper">
@@ -11,11 +11,8 @@
                 </div>
                 <ol class="breadcrumb page-breadcrumb pull-right">
                     <li>
-                        <i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="#">Home</a>&nbsp;
-                        <i class="fa fa-angle-right"></i>
-                    </li>
-                    <li>
-                        <a class="parent-item" href="#">Daftar Sales</a>&nbsp;
+                        <i class="fa fa-home"></i>&nbsp;
+                        <a class="parent-item" href="{{ route('pegawai.dashboard') }}">Home</a>&nbsp;
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li class="active">{{ $title }}</li>
@@ -101,19 +98,6 @@
                             <div class="card-body">
                                 <div class="recent-report__chart">
                                     <div id="chart1"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-head">
-                                <header>Toko yang Dipegang</header>
-                            </div>
-                            <div class="card-body no-padding height-9">
-                                <div class="row text-center m-t-10">
-                                    <div class="col-md-12">
-                                        <p>456, Pragri flat, varacha road, Surat
-                                            <br> Gujarat, India.</p>
-                                    </div>
                                 </div>
                             </div>
                         </div>

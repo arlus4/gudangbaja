@@ -11,10 +11,11 @@
                 </div>
                 <ol class="breadcrumb page-breadcrumb pull-right">
                     <li><i class="fa fa-home"></i>&nbsp;
-                        <a class="parent-item" href="/">Beranda</a>&nbsp;
+                        <a class="parent-item" href="/admin/dashboard">Beranda</a>&nbsp;
                         <i class="fa fa-angle-right"></i>
                     </li>
-                    <li><a class="parent-item" href="/pelanggan">Pelanggan</a>&nbsp;<i class="fa fa-angle-right"></i>
+                    <li><a class="parent-item" href="/admin/pelanggan">Daftar Pelanggan</a>&nbsp;
+                        <i class="fa fa-angle-right"></i>
                     </li>
                     <li class="active">{{ $title }}</li>
                 </ol>
@@ -25,95 +26,162 @@
                 <div class="card-box">
                     <div class="card-head">
                         <header>Form {{ $title }}</header>
-                        <button id="panel-button" class="mdl-button mdl-js-button mdl-button--icon pull-right" data-upgraded=",MaterialButton">
-                            <i class="material-icons">more_vert</i>
-                        </button>
-                        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-                            data-mdl-for="panel-button">
-                            <li class="mdl-menu__item">
-                                <i class="material-icons">assistant_photo</i>Action
-                            </li>
-                            <li class="mdl-menu__item">
-                                <i class="material-icons">print</i>Another action
-                            </li>
-                            <li class="mdl-menu__item">
-                                <i class="material-icons">favorite</i>Something else here
-                            </li>
-                        </ul>
                     </div>
                     <div class="card-body row">
-                        <div class="col-lg-6 p-t-20">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                <input class="mdl-textfield__input" type="text" id="txtFirstName">
-                                <label class="mdl-textfield__label">Nama Toko</label>
+                        <form method="POST" action="/admin/pelanggan" enctype="multipart/form-data">
+                            @csrf
+                            <div class="col-lg-12 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                    <input class="mdl-textfield__input @error('kode') is-invalid @enderror" type="text" id="kode" name="kode" value="{{ old('kode') }}" auto-focus>
+                                    @error('kode')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                        <span class="mdl-textfield__error">Kode yang Anda Masukan Salah/Telah Tersedia!</span>
+                                    </div>
+                                    @enderror
+                                    <label class="mdl-textfield__label">Kode Toko</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 p-t-20">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                <input class="mdl-textfield__input" type="email" id="txtemail">
-                                <label class="mdl-textfield__label">Kode</label>
-                                <span class="mdl-textfield__error">Enter Valid Email Address!</span>
+                            <div class="col-lg-12 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                    <input class="mdl-textfield__input @error('slug') is-invalid @enderror" type="text" id="slug" name="slug" value="{{ old('slug') }}">
+                                    @error('slug')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <label class="mdl-textfield__label">Slug</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 p-t-20">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                <input class="mdl-textfield__input" type="text" id="txtLasttName" disabled>
-                                <label class="mdl-textfield__label">Slug</label>
+                            <div class="col-lg-12 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                    <input class="mdl-textfield__input @error('nama') is-invalid @enderror" type="text" id="nama" name="nama" value="{{ old('nama') }}">
+                                    @error('nama')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <label class="mdl-textfield__label">Nama Toko</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 p-t-20">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="text5">
-                                <label class="mdl-textfield__label" for="text5">Kontak</label>
-                                <span class="mdl-textfield__error">Number required!</span>
+                            <div class="col-lg-12 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                    <input class="mdl-textfield__input @error('kontak') is-invalid @enderror" pattern="-?[0-9]*(\.[0-9]+)?" type="text" id="kontak" name="kontak" value="{{ old('kontak') }}">
+                                    @error('kontak')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <label class="mdl-textfield__label" for="text5">Kontak</label>
+                                    <span class="mdl-textfield__error">Only Number required!</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 p-t-20">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                <input class="mdl-textfield__input" type="text" id="#">
-                                <label class="mdl-textfield__label">Username</label>
+                            <div class="col-lg-12 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                    <input class="mdl-textfield__input @error('email') is-invalid @enderror" type="email" id="email" name="email" value="{{ old('email') }}">
+                                    @error('email')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <label class="mdl-textfield__label">Email</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 p-t-20">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                <input class="mdl-textfield__input" type="password" id="txtPwd">
-                                <label class="mdl-textfield__label">Password</label>
+                            <div class="col-lg-12 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                    <input class="mdl-textfield__input @error('username') is-invalid @enderror" type="text" id="username" name="username" value="{{ old('username') }}">
+                                    @error('username')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <label class="mdl-textfield__label">Username</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 p-t-20">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
-                                <input class="mdl-textfield__input" type="text" id="list2" value="" readonly tabIndex="-1">
-                                <label for="list2" class="pull-right margin-0">
-                                    <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
-                                </label>
-                                <label for="list2" class="mdl-textfield__label">Sales</label>
-                                <ul data-mdl-for="list2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                    <li class="mdl-menu__item" data-val="DE">Library</li>
-                                </ul>
+                            <div class="col-lg-12 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                    <input class="mdl-textfield__input" type="password" id="password" name="password">
+                                    <label class="mdl-textfield__label">Password</label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12 p-t-20">
-                            <div class="mdl-textfield mdl-js-textfield txt-full-width">
-                                <textarea class="mdl-textfield__input" rows="4" id="text7"></textarea>
-                                <label class="mdl-textfield__label" for="text7">Alamat</label>
+                            <div class="col-lg-12 p-t-20">
+                                <label class="control-label col-md-3" for="sales">Sales</label>
+                                <select class="form-select" name="pegawai_id" id="sales">
+                                    <option selected disabled>Pilih Sales ...</option>
+                                    @foreach ($sales as $s)
+                                        @if (old('pegawai_id') == $s->id)
+                                        <option value="{{ $s->id }}" selected>{{ $s->kode }}</option>
+                                        @else
+                                        <option value="{{ $s->id }}">{{ $s->kode }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
                             </div>
-                        </div>
-                        <div class="col-lg-12 p-t-20">
-                            <label class="control-label col-md-3">Upload Photo </label>
-                            <div class="col-md-12">
-                                <div id="id_dropzone" class="dropzone"></div>
+                            <div class="col-lg-12 p-t-20">
+                                <label class="control-label col-md-3" for="kategori">Kategori Pelanggan</label>
+                                <select class="form-select" name="kategori" id="kategori">
+                                    <option selected disabled>Pilih Kategori Pelanggan ...</option>
+                                    <option value="supplier">Supplier</option>
+                                    <option value="retail">Retail</option>
+                                </select>
                             </div>
-                        </div>
-                        <div class="col-lg-12 p-t-20 text-center">
-                            <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-pink">Submit</button>
-                            <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-default">Cancel</button>
-                        </div>
+                            <div class="col-lg-12 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                    <input class="mdl-textfield__input @error('limit') is-invalid @enderror" pattern="-?[0-9]*(\.[0-9]+)?" type="text" id="limit" name="limit" value="{{ old('limit') }}">
+                                    @error('limit')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <label class="mdl-textfield__label">Limit Toko</label>
+                                    <span class="mdl-textfield__error">Only Number required!</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield txt-full-width">
+                                    <textarea class="mdl-textfield__input" rows="4" id="alamat" name="alamat" value="{{ old('alamat') }}"></textarea>
+                                    <label class="mdl-textfield__label" for="alamat">Alamat</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 p-t-20">
+                                <label class="control-label col-md-3">Photo Toko</label>
+                                <input type="file" class="default @error('photo_toko') is-invalid @enderror" id="photo_toko" name="photo_toko" multiple onchange="previewImage()">
+                                @error('photo_toko')
+                                <div class="invalid-feedback">
+                                    <p class="text-danger">{{ $message }}</p>
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="col-lg-12 p-t-20">
+                                <label class="control-label col-md-3">Kartu Identitas Toko</label>
+                                <input type="file" class="default @error('photo_ktp') is-invalid @enderror" id="photo_ktp" name="photo_ktp" multiple onchange="previewImage()">
+                                @error('photo_ktp')
+                                <div class="invalid-feedback">
+                                    <p class="text-danger">{{ $message }}</p>
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="col-lg-12 p-t-20 text-center">
+                                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-circle btn-success">Submit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    const kode = document.querySelector('#kode');
+    const slug = document.querySelector('#slug');
+
+    kode.addEventListener('change', function(){
+        fetch('/admin/pelanggan/checkSlug?kode=' + kode.value)
+        .then(response => response.json())
+        .then(data => slug.value = data.slug)
+    });
+
+</script>
 <!-- end page content -->
 
 @endsection

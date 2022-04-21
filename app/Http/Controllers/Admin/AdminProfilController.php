@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Produk;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Http\Request;
 
-class Produk_SupplierController extends Controller
+class AdminProfilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class Produk_SupplierController extends Controller
      */
     public function index()
     {
-        return view('admin/produk/supplier/index', [
-            'title' => 'Daftar Harga Supplier'
+        return view('admin/show', [
+            'title' => 'Profil Admin'
         ]);
     }
 
@@ -44,10 +44,10 @@ class Produk_SupplierController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Produk  $produk
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Produk $produk)
+    public function show(User $user)
     {
         //
     }
@@ -55,10 +55,10 @@ class Produk_SupplierController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Produk  $produk
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produk $produk)
+    public function edit(User $user)
     {
         //
     }
@@ -67,10 +67,10 @@ class Produk_SupplierController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Produk  $produk
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Produk $produk)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -78,10 +78,10 @@ class Produk_SupplierController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Produk  $produk
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Produk $produk)
+    public function destroy(User $user)
     {
         //
     }

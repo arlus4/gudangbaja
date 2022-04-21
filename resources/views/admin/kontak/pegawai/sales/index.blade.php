@@ -15,10 +15,6 @@
                         <a class="parent-item" href="/admin/dashboard">Beranda</a>&nbsp;
                         <i class="fa fa-angle-right"></i>
                     </li>
-                    <li>
-                        <a class="parent-item" href="javascript:;">Pegawai</a>&nbsp;
-                        <i class="fa fa-angle-right"></i>
-                    </li>
                     <li class="active">{{ $title }}</li>
                 </ol>
             </div>
@@ -43,7 +39,7 @@
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-6 col-6">
                                                     <div class="btn-group">
-                                                        <a href="{{ route('sales.create') }}" id="addRow" class="btn btn-info"> Tambah Sales Baru 
+                                                        <a href="/admin/pegawai/sales/create" id="addRow" class="btn btn-info"> Tambah Sales Baru 
                                                             <i class="fa fa-plus"></i>
                                                         </a>
                                                     </div>
@@ -89,31 +85,17 @@
                                                             <td class="left">{{ $s->keterangan }}</td>
                                                             <td>{{ $s->omset }}</td>
                                                             <td class="left">{{ ucwords($s->sebagai) }}</td>
-                                                            <td class="valigntop">
-                                                                <div class="btn-group">
-                                                                    <button class="btn btn-xs deepPink-bgcolor dropdown-toggle no-margin" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                        Actions <i class="fa fa-angle-down"></i>
-                                                                    </button>
-                                                                    <ul class="dropdown-menu pull-left" role="menu">
-                                                                        <li>
-                                                                            <a href="javascript:;">
-                                                                                <i class="icon-info"></i> Lihat </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a href="/admin/pegawai/sales/{{ $s->slug }}/edit">
-                                                                                <i class="icon-note"></i> Ubah </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <form action="/admin/pegawai/sales/{{ $s->slug }}" method="POST">
-                                                                                <li class="divider"> </li>
-                                                                                @method('delete')
-                                                                                @csrf
-                                                                                <a href="/admin/pegawai/sales/{{ $s->slug}}" onclick="return confirm('Apakah Anda yakin?')">
-                                                                                    <i class="icon-trash"></i> Hapus
-                                                                                </a>
-                                                                            </form>
-                                                                        </li>
-                                                                    </ul>
+                                                            <td> 
+                                                                <div class="btn-group btn-group-circle btn-group-solid">
+                                                                    <a href="/admin/pegawai/sales/{{ $s->slug }}" type="button" class="btn btn-info"><i class="fa fa-info"></i></a>
+                                                                    <a href="/admin/pegawai/sales/{{ $s->slug }}/edit" type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                                                    <form action="/admin/pegawai/sales/{{ $s->slug }}" method="POST">
+                                                                        @method('delete')
+                                                                        @csrf
+                                                                        <button type="submit" class="btn deepPink-bgcolor" onclick="return confirm('Apakah Anda yakin?')">
+                                                                            <i class="fa fa-trash-o"></i>
+                                                                        </button>
+                                                                    </form>
                                                                 </div>
                                                             </td>
                                                         </tr>

@@ -1,5 +1,5 @@
-@extends('admin/layouts/main')
-@section('admin/index')
+@extends('pegawai/sales/layouts/main')
+@section('pegawai/sales/index')
 
 <!-- start page content -->
 <div class="page-content-wrapper">
@@ -47,11 +47,8 @@
                                         <th>Kode</th>
                                         <th>Nama</th>
                                         <th>Jumlah</th>
-                                        <th>Harga Dasar</th>
-                                        <th>Tanggal Harga Terkini</th>
                                         <th>Harga Supplier</th>
                                         <th>Harga Retail</th>
-                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,21 +58,6 @@
                                         <td>...</td>
                                         <td>...</td>
                                         <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td> 
-                                            <div class="btn-group btn-group-circle btn-group-solid">
-                                                <a href="#" type="button" class="btn btn-info"><i class="fa fa-info"></i></a>
-                                                <a href="#" type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
-                                                <form action="#" method="POST">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button type="submit" class="btn deepPink-bgcolor" onclick="return confirm('Apakah Anda yakin?')">
-                                                        <i class="fa fa-trash-o"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

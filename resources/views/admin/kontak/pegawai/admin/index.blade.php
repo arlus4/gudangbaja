@@ -46,7 +46,7 @@
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-6 col-6">
                                                     <div class="btn-group">
-                                                        <a href="{{ route('admin.create') }}" id="addRow" class="btn btn-info">
+                                                        <a href="/admin/pegawai/admin/create" id="addRow" class="btn btn-info">
                                                             Tambah Admin Baru <i class="fa fa-plus"></i>
                                                         </a>
                                                     </div>

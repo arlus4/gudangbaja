@@ -15,7 +15,7 @@ class Produk_RetailController extends Controller
      */
     public function index()
     {
-        return view('admin/produk/index', [
+        return view('admin/produk/retail/index', [
             'title' => 'Daftar Harga Retail'
         ]);
     }

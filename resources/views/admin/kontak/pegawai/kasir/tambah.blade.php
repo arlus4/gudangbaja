@@ -14,7 +14,7 @@
                         <a class="parent-item" href="/admin/dashboard">Beranda</a>&nbsp;
                         <i class="fa fa-angle-right"></i>
                     </li>
-                    <li><a class="parent-item" href="/admin/pegawai/sales">Daftar Sales</a>&nbsp;<i class="fa fa-angle-right"></i>
+                    <li><a class="parent-item" href="/admin/pegawai">Pegawai</a>&nbsp;<i class="fa fa-angle-right"></i>
                     </li>
                     <li class="active">{{ $title }}</li>
                 </ol>
@@ -29,10 +29,10 @@
                     </div>
                     <div class="card-body" id="bar-parent">
                         <div class="row">
-                            <form method="POST" action="/admin/pegawai/sales" enctype="multipart/form-data">
+                            <form method="POST" action="/admin/pegawai/kasir" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="kode">Kode Sales</label>
+                                    <label for="kode">Kode Kasir</label>
                                     <input type="text" class="form-control @error('kode') is-invalid @enderror" id="kode" name="kode" value="{{ old('kode') }}" required auto-focus>
                                     @error('kode')
                                     <div class="invalid-feedback">
@@ -50,7 +50,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="nama">Nama Sales</label>
+                                    <label for="nama">Nama Kasir</label>
                                     <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama') }}" required>
                                     @error('nama')
                                     <div class="invalid-feedback">
@@ -59,7 +59,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Email Sales</label>
+                                    <label for="email">Email Kasir</label>
                                     <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required>
                                     @error('email')
                                     <div class="invalid-feedback">
@@ -93,11 +93,12 @@
                                     <label class="control-label col-md-3">Sebagai</label>
                                     <select class="form-select" name="sebagai">
                                         <option value="">Silahkan pilih...</option>
+                                        <option value="kasir">Kasir</option>
                                         <option value="sales">Sales</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Photo Sales</label>
+                                    <label class="control-label col-md-3">Photo Kasir</label>
                                     <input type="file" class="default @error('photo') is-invalid @enderror" id="photo" name="photo" multiple onchange="previewImage()">
                                     @error('photo')
                                     <div class="invalid-feedback">
@@ -106,7 +107,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Kartu Identitas Sales</label>
+                                    <label class="control-label col-md-3">Kartu Identitas Kasir</label>
                                     <input type="file" class="default @error('ktp') is-invalid @enderror" id="ktp" name="ktp" multiple onchange="previewImage()">
                                     @error('ktp')
                                     <div class="invalid-feedback">
@@ -123,9 +124,9 @@
                                     @enderror
                                     <textarea name="alamat" id="alamat" class="form-control-textarea" rows="5" value="{{ old('alamat') }}" required></textarea>
                                 </div>
-                                <div class="col-lg-12 p-t-20 text-center">
+                                <div class="form-group">
                                     <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-circle btn-primary">Submit</button>
-                                        {{-- <button type="button" class="btn btn-default">Cancel</button> --}}
+                                    {{-- <button type="button" class="btn btn-default">Cancel</button> --}}
                                 </div>
                             </form>
                         </div>
@@ -141,11 +142,11 @@
     const slug = document.querySelector('#slug');
 
     kode.addEventListener('change', function(){
-        fetch('/admin/pegawai/sales/checkSlug?kode=' + kode.value)
+        fetch('/admin/pegawai/kasir/checkSlug?kode=' + kode.value)
         .then(response => response.json())
         .then(data => slug.value = data.slug)
     });
-  </script>
+</script>
 <script>
     function previewImage() {
       const photo = document.querySelector('#photo');

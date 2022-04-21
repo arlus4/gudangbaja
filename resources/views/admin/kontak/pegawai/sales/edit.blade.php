@@ -29,7 +29,7 @@
                     </div>
                     <div class="card-body" id="bar-parent">
                         <div class="row">
-                            <form method="POST" action="{{ route('sales.index') }}" enctype="multipart/form-data">
+                            <form method="POST" action="/admin/pegawai/sales" enctype="multipart/form-data">
                                 @method('put')
                                 @csrf
                                 <div class="form-group">

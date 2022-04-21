@@ -104,19 +104,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="card-head">
-                                <header>Toko yang Dipegang</header>
-                            </div>
-                            <div class="card-body no-padding height-9">
-                                <div class="row text-center m-t-10">
-                                    <div class="col-md-12">
-                                        <p>456, Pragri flat, varacha road, Surat
-                                            <br> Gujarat, India.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <!-- END PROFILE CONTENT -->

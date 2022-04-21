@@ -23,13 +23,13 @@
                     </div>
                 </li>
                 <li class="nav-item start active open">
-                    <a href="/dashboard" class="nav-link nav-toggle">
+                    <a href="{{ route('pegawai.dashboard') }}" class="nav-link nav-toggle">
                     <i class="material-icons">dashboard</i>
                         <span class="title">Beranda</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link nav-toggle">
+                    <a href="{{ route('pelanggan.index') }}" class="nav-link nav-toggle">
                         <i class="material-icons">face</i>
                         <span class="title">Pelanggan</span>
                     </a>

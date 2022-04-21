@@ -15,8 +15,6 @@ class CreatePegawaisTable extends Migration
     {
         Schema::create('pegawais', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('produk_id');
-            $table->foreignId('pelanggan_id');
             $table->foreignId('user_id');
             $table->string('kode')->unique();
             $table->string('nama');
@@ -25,7 +23,7 @@ class CreatePegawaisTable extends Migration
             $table->string('username')->unique();
             $table->string('password');
             $table->string('kontak');
-            $table->string('pegang_toko');
+            $table->string('pegang_toko')->nullable();
             $table->string('ktp')->nullable();
             $table->string('keterangan')->nullable();
             $table->string('photo', 2048)->nullable();

@@ -1,5 +1,5 @@
-@extends('admin/layouts/main')
-@section('admin/index')
+@extends('pegawai/kasir/layouts/main')
+@section('pegawai/kasir/index')
 
 <!-- start page content -->
 <div class="page-content-wrapper">
@@ -12,7 +12,7 @@
                 <ol class="breadcrumb page-breadcrumb pull-right">
                     <li>
                         <i class="fa fa-home"></i>&nbsp;
-                        <a class="parent-item" href="/">Home</a>&nbsp;
+                        <a class="parent-item" href="{{ route('pegawai.dashboard') }}">Home</a>&nbsp;
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li class="active">{{ $title }}</li>
@@ -31,26 +31,29 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        {{-- <div class="row">
+                        <div class="row">
                             <div class="col-md-6 col-sm-6 col-6">
                                 <div class="btn-group">
-                                    <a href="/stok/create" id="addRow" class="btn btn-info">
-                                        Produk Baru <i class="fa fa-plus"></i>
+                                    <a href="{{ route('pelanggan.create') }}" id="addRow" class="btn btn-info">
+                                        Pelanggan Baru <i class="fa fa-plus"></i>
                                     </a>
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
                         <div class="table-scrollable">
                             <table id="example1" class="display" style="width:100%;">
                                 <thead>
                                     <tr>
                                         <th>Kode</th>
                                         <th>Nama</th>
-                                        <th>Jumlah</th>
-                                        <th>Harga Dasar</th>
-                                        <th>Tanggal Harga Terkini</th>
-                                        <th>Harga Supplier</th>
-                                        <th>Harga Retail</th>
+                                        <th>Alamat</th>
+                                        <th>Kontak</th>
+                                        <th>Status</th>
+                                        <th>Nota</th>
+                                        <th>Jatuh Tempo</th>
+                                        <th>Keterangan</th>
+                                        <th>Limit</th>
+                                        <th>Total Pembelian</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -59,10 +62,13 @@
                                         <td>...</td>
                                         <td>...</td>
                                         <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
+                                        <td>....</td>
+                                        <td>Suppliers/Retail</td>
+                                        <td>....</td>
+                                        <td>....</td>
+                                        <td>Lunas/Belum</td>
+                                        <td>....</td>
+                                        <td>....</td>
                                         <td> 
                                             <div class="btn-group btn-group-circle btn-group-solid">
                                                 <a href="#" type="button" class="btn btn-info"><i class="fa fa-info"></i></a>

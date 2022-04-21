@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Produk;
 use App\Models\Pegawai;
-use App\Models\Kategori;
 use App\Models\Transaksi;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
@@ -30,21 +28,29 @@ class Pelanggan extends Authenticatable
      *
      * @var array
      */
-    protected $guard = 'pegawais';
+    protected $guard = 'pelanggans';
+
+    //fungsi eager loading laravel
+    protected $with = ['users', 'pegawai'];
+
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = ['id', 'created_at'];
 
     /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
-    protected $fillable = [
-        'nama',
-        'username',
-        'role',
-        'email',
-        'password',
-        'omset'
-    ];
+    // protected $fillable = [
+    //     'nama',
+    //     'username',
+    //     'email',
+    //     'password',
+    // ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -97,21 +103,11 @@ class Pelanggan extends Authenticatable
 
     public function pegawai()
     {
-        return $this->belongsTo(Pegawai::class, 'pegawai_id');
+        return $this->belongsTo(Pegawai::class);
     }
 
-    public function produks()
-    {
-        return $this->belongsTo(Produk::class, 'produk_id');
-    }
-
-    public function kategori()
-    {
-        return $this->belongsTo(Kategori::class);
-    }
-
-    public function transaksi()
-    {
-        return $this->belongsTo(Transaksi::class);
-    }
+    // public function transaksi()
+    // {
+    //     return $this->belongsTo(Transaksi::class);
+    // }
 }

@@ -44,13 +44,10 @@
                             <table id="example1" class="display" style="width:100%;">
                                 <thead>
                                     <tr>
-                                        <th>Kode</th>
-                                        <th>Nama</th>
-                                        <th>Jumlah</th>
-                                        <th>Harga Dasar</th>
-                                        <th>Tanggal Harga Terkini</th>
-                                        <th>Harga Supplier</th>
-                                        <th>Harga Retail</th>
+                                        <th>Kode Barang</th>
+                                        <th>Nama Barang</th>
+                                        <th>Stok</th>
+                                        <th>Harga</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -60,9 +57,6 @@
                                         <td><a href="#"> Tiger Nixon</a></td>
                                         <td>System Architect</td>
                                         <td>Edinburgh</td>
-                                        <td>Verif/Not Verif</td>
-                                        <td>2011/04/25</td>
-                                        <td>2011/04/25</td>
                                         <td>
                                             <a href="#" class="btn btn-primary btn-xs">
                                                 <i class="fa fa-pencil"></i>

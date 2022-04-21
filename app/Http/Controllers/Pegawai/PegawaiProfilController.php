@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Pegawai;
 
-use App\Models\Produk;
+use App\Models\Pegawai;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
-class Produk_SupplierController extends Controller
+class PegawaiProfilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,23 @@ class Produk_SupplierController extends Controller
      */
     public function index()
     {
-        return view('admin/produk/supplier/index', [
-            'title' => 'Daftar Harga Supplier'
-        ]);
+        $role = Auth::guard('pegawai')->user()->sebagai;
+        // kasir
+        if ($role == 'kasir') {
+            return view('pegawai/kasir/show', [
+                'title' => 'Profil Kasir'
+            ]);
+        }
+        // sales
+        elseif ($role == 'sales') {
+            return view('pegawai/sales/show', [
+                'title' => 'Profil Sales'
+            ]);
+        }
+        //role lain
+        else {
+            // return view('admin.index');
+        }
     }
 
     /**
@@ -44,10 +59,10 @@ class Produk_SupplierController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Produk  $produk
+     * @param  \App\Models\Pegawai  $pegawai
      * @return \Illuminate\Http\Response
      */
-    public function show(Produk $produk)
+    public function show(Pegawai $pegawai)
     {
         //
     }
@@ -55,10 +70,10 @@ class Produk_SupplierController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Produk  $produk
+     * @param  \App\Models\Pegawai  $pegawai
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produk $produk)
+    public function edit(Pegawai $pegawai)
     {
         //
     }
@@ -67,10 +82,10 @@ class Produk_SupplierController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Produk  $produk
+     * @param  \App\Models\Pegawai  $pegawai
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Produk $produk)
+    public function update(Request $request, Pegawai $pegawai)
     {
         //
     }
@@ -78,10 +93,10 @@ class Produk_SupplierController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Produk  $produk
+     * @param  \App\Models\Pegawai  $pegawai
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Produk $produk)
+    public function destroy(Pegawai $pegawai)
     {
         //
     }

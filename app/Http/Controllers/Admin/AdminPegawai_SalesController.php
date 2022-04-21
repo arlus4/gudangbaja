@@ -22,7 +22,7 @@ class AdminPegawai_SalesController extends Controller
     {
         $pegawai = Pegawai::where('sebagai', 'sales')->get();
         return view('admin/kontak/pegawai/sales/index', [
-            'title' => 'Data Sales',
+            'title' => 'Daftar Sales',
             'pegawai' => $pegawai,
         ]);
     }
@@ -36,7 +36,6 @@ class AdminPegawai_SalesController extends Controller
     {
         return view('admin/kontak/pegawai/sales/tambah', [
             'title' => 'Tambah Sales Baru',
-            'pelanggan' => Pelanggan::all(),
             'pegawai' => Pegawai::where('user_id', auth()->user()->id)->get(),
         ]);
     }
@@ -57,7 +56,6 @@ class AdminPegawai_SalesController extends Controller
             'alamat'    => 'required',
             'username'  => 'required | unique:pegawais',
             'password'  => 'required | min:2 | max:255',
-            'pegang_toko'  => 'required',
             'kontak'    => 'required',
             'sebagai'   => 'required',
             'photo'     => 'required | image | mimes:jpg,png,jpeg,gif,svg | max:2048',
@@ -81,7 +79,7 @@ class AdminPegawai_SalesController extends Controller
     public function show(Pegawai $sale) // ($) pada routing
     {
         return view('admin/kontak/pegawai/sales/show', [
-            'title' => 'Lihat Sales',
+            'title' => 'Profil Sales',
             'sales' => $sale,
             'pelanggan' => Pelanggan::all()
         ]);

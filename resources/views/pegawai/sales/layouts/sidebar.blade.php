@@ -16,53 +16,26 @@
                         </div>
                         <div class="pull-left info">
                             <h4> {{ Auth::guard('pegawai')->user()->nama}}</h4>
-                            <a href="#">
-                                <i class="fa fa-circle user-online"></i>
-                                <span class="txtOnline">{{ Auth::guard('pegawai')->user()->sebagai}}</span>
-                            </a>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item start active open">
-                    <a href="/pegawai/dashboard" class="nav-link nav-toggle">
+                    <a href="{{ route('pegawai.dashboard') }}" class="nav-link">
                     <i class="material-icons">dashboard</i>
                         <span class="title">Beranda</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/pegawai/pelanggan" class="nav-link nav-toggle">
+                    <a href="{{ route('pelanggan.index') }}" class="nav-link">
                         <i class="material-icons">face</i>
                         <span class="title">Pelanggan</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="javascript:;" class="nav-link nav-toggle">
+                    <a href="{{ route('produk.index') }}" class="nav-link">
                         <i class="material-icons">storage</i>
                         <span class="title">Produk</span>
-                        <span class="arrow "></span>
                     </a>
-                    <ul class="sub-menu">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-cubes"></i> Stok 
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link nav-toggle">
-                                <i class="fa fa-bookmark"></i> Kategori
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link nav-toggle">
-                                <i class="fa fa-handshake-o"></i> Diskon
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link nav-toggle">
-                                <i class="fa fa-bank"></i> Pajak
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle">
@@ -72,21 +45,15 @@
                     </a>
                     <ul class="sub-menu">                        
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('pesanan.index') }}" class="nav-link">
                                 <i class="fa fa-edit"></i> Pesanan 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link nav-toggle">
-                                <i class="fa fa-mail-forward"></i> Penjualan
+                            <a href="{{ route('pre_order.index') }}" class="nav-link nav-toggle">
+                                <i class="fa fa-shopping-cart"></i> Pre-Order
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link nav-toggle">
-                                <i class="fa fa-mail-reply"></i> Pembelian
-                            </a>
-                        </li>
-
                     </ul>
                 </li>
                 <li class="nav-item">

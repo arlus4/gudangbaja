@@ -33,24 +33,24 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('admin.index') }}" class="nav-link">
+                            <a href="/admin/pegawai/admin" class="nav-link">
                                 <i class="fa fa-child"></i> Admin
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('sales.index') }}" class="nav-link">
-                                <i class="fa fa-handshake-o"></i> Sales 
+                            <a href="/admin/pegawai/sales" class="nav-link">
+                                <i class="fa fa-briefcase"></i> Sales 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('kasir.index') }}" class="nav-link">
+                            <a href="/admin/pegawai/kasir" class="nav-link">
                                 <i class="fa fa-desktop"></i> Kasir 
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('pelanggan.index') }}" class="nav-link">
+                    <a href="/admin/pelanggan" class="nav-link">
                     <i class="material-icons">person</i>
                         <span class="title">Pelanggan</span>
                     </a>
@@ -63,17 +63,17 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('produk.index') }}" class="nav-link">
+                            <a href="/admin/produk" class="nav-link">
                                 <i class="fa fa-cubes"></i> Stok Barang
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/admin/harga_supplier" class="nav-link">
                                 <i class="fa fa-building"></i> Harga Supplier 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/admin/harga_retail" class="nav-link">
                                 <i class="fa fa-home"></i> Harga Retail 
                             </a>
                         </li>
@@ -87,17 +87,17 @@
                     </a>
                     <ul class="sub-menu">                        
                         <li class="nav-item">
-                            <a href="{{ route('pesanan.index') }}" class="nav-link">
+                            <a href="/admin/transaksi/pesanan" class="nav-link">
                                 <i class="fa fa-edit"></i> Pesanan 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('pre_order.index') }}" class="nav-link">
+                            <a href="/admin/transaksi/pre_order" class="nav-link">
                                 <i class="fa fa-shopping-cart"></i> Pre-Order
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('pembelian.index') }}" class="nav-link">
+                            <a href="/admin/transaksi/pembelian" class="nav-link">
                                 <i class="fa fa-mail-reply"></i> Pembelian
                             </a>
                         </li>

@@ -40,7 +40,6 @@ class DatabaseSeeder extends Seeder
         ]);
         Pegawai::create([
             'user_id' => '1',
-            'pelanggan_id' => '1',
             'kode' => 'A1',
             'nama' => 'Arfan Lusiandro',
             'slug' => 'arfan',
@@ -50,14 +49,12 @@ class DatabaseSeeder extends Seeder
             'alamat' => 'Subang, Jawa Barat',
             'sebagai' => 'sales',
             'password' => bcrypt('password'),
-            'pegang_toko'  => 'test',
             'ktp'       => 'test.jpg',
             'photo'     => 'test.jpg',
             'remember_token' => Str::random(10),
         ]);
         Pegawai::create([
             'user_id' => '1',
-            'pelanggan_id' => '1',
             'nama' => 'Arfan Lusiandro',
             'slug' => 'arlus',
             'kode' => 'A2',
@@ -67,7 +64,6 @@ class DatabaseSeeder extends Seeder
             'alamat' => 'Subang, Jawa Barat',
             'sebagai' => 'kasir',
             'password' => bcrypt('password'),
-            'pegang_toko'  => 'test',
             'ktp'       => 'test.jpg',
             'photo'     => 'test.jpg',
             'remember_token' => Str::random(10)
@@ -83,6 +79,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'kontak' => '081',
             'alamat' => 'Bogor',
+            'kategori' => 'supplier',
             'remember_token' => Str::random(10)
         ]);
         Pelanggan::create([
@@ -96,6 +93,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'kontak' => '081',
             'alamat' => 'Cileungsi',
+            'kategori' => 'retail',
             'remember_token' => Str::random(10)
         ]);
     }

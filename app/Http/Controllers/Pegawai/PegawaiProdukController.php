@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Pegawai;
 
+use App\Http\Controllers\Controller;
 use App\Models\Produk;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class Produk_SupplierController extends Controller
+class PegawaiProdukController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class Produk_SupplierController extends Controller
      */
     public function index()
     {
-        return view('admin/produk/supplier/index', [
-            'title' => 'Daftar Harga Supplier'
+        return view('pegawai/sales/produk/index', [
+            'title' => 'Daftar Produk'
         ]);
     }
 

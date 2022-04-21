@@ -12,7 +12,7 @@
                 <ol class="breadcrumb page-breadcrumb pull-right">
                     <li>
                         <i class="fa fa-home"></i>&nbsp;
-                        <a class="parent-item" href="/">Home</a>&nbsp;
+                        <a class="parent-item" href="/admin/dashboard">Home</a>&nbsp;
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li class="active">{{ $title }}</li>
@@ -34,7 +34,7 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-6">
                                 <div class="btn-group">
-                                    <a href="/pelanggan/create" id="addRow" class="btn btn-info">
+                                    <a href="/admin/pelanggan/create" id="addRow" class="btn btn-info">
                                         Pelanggan Baru <i class="fa fa-plus"></i>
                                     </a>
                                 </div>
@@ -44,13 +44,14 @@
                             <table id="example1" class="display" style="width:100%;">
                                 <thead>
                                     <tr>
+                                        <th></th>
                                         <th>Kode</th>
                                         <th>Nama</th>
                                         <th>Alamat</th>
                                         <th>Kontak</th>
                                         <th>Sales</th>
+                                        <th>Kategori</th>
                                         <th>Foto KTP</th>
-                                        <th>Foto Toko</th>
                                         <th>Nota</th>
                                         <th>Jatuh Tempo</th>
                                         <th>Keterangan</th>
@@ -60,42 +61,41 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($pelanggan as $p)
                                     <tr>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
+                                        <td class="patient-img">
+                                            <img src="{{ asset('storage/'.$p->photo_toko) }}" alt="Kartu Indentitas {{ $p->nama }}">
+                                        </td>
+                                        <td>{{ $p->kode }}</td>
+                                        <td>{{ $p->nama }}</td>
+                                        <td>{{ $p->alamat }}</td>
+                                        <td>{{ $p->kontak }}</td>
                                         <td>....</td>
-                                        <td>....</td>
-                                        <td>....</td>
-                                        <td>....</td>
+                                        {{-- <td>{{ $p->pegawais->kode }}</td> --}}
+                                        <td>{{ ucwords($p->kategori) }}</td>
+                                        <td class="patient-img">
+                                            <img src="{{ asset('storage/'.$p->photo_ktp) }}" alt="Kartu Indentitas {{ $p->nama }}">
+                                        </td>
                                         <td>....</td>
                                         <td>....</td>
                                         <td>Lunas/Belum</td>
+                                        <td>Rp.{{ $p->limit }}</td>
                                         <td>....</td>
-                                        <td>....</td>
-                                        <td class="valigntop">
-                                            <div class="btn-group">
-                                                <button class="btn btn-xs deepPink-bgcolor dropdown-toggle no-margin" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Actions <i class="fa fa-angle-down"></i>
-                                                </button>
-                                                <ul class="dropdown-menu pull-left" role="menu">
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="icon-info"></i> Lihat </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="icon-note"></i> Ubah </a>
-                                                    </li>
-                                                    <li class="divider"> </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="icon-trash"></i> Hapus </a>
-                                                    </li>
-                                                </ul>
+                                        <td> 
+                                            <div class="btn-group btn-group-circle btn-group-solid">
+                                                <a href="/admin/pelanggan/{{ $p->slug }}" type="button" class="btn btn-info"><i class="fa fa-info"></i></a>
+                                                <a href="/admin/pelanggan/{{ $p->slug }}/edit" type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                                <form action="/admin/pelanggan/{{ $p->slug }}" method="POST">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button type="submit" class="btn deepPink-bgcolor" onclick="return confirm('Apakah Anda yakin?')">
+                                                        <i class="fa fa-trash-o"></i>
+                                                    </button>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

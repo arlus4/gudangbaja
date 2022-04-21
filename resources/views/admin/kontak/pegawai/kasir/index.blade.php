@@ -43,7 +43,7 @@
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-6 col-6">
                                                     <div class="btn-group">
-                                                        <a href="{{ route('kasir.create') }}" id="addRow" class="btn btn-info"> Tambah Kasir Baru 
+                                                        <a href="/admin/pegawai/kasir/create" id="addRow" class="btn btn-info"> Tambah Kasir Baru 
                                                             <i class="fa fa-plus"></i>
                                                         </a>
                                                     </div>
@@ -67,27 +67,30 @@
                                                         @foreach ($kasir as $k)
                                                         <tr class="odd gradeX">
                                                             <td class="patient-img">
-                                                                <img src="{{ asset('admin/img/std/std1.jpg') }}" alt="">
+                                                                <img src="{{ asset('storage/'.$k->photo) }}" alt="Photo Profil {{ $k->nama }}">
                                                             </td>
                                                             <td class="left">{{ $k->kode }}</td>
                                                             <td>{{ $k->nama }}</td>
+                                                            <td>{{ $k->alamat }}</td>
+                                                            <td class="left">{{ ucwords($k->sebagai) }}</td>
                                                             <td class="left">
                                                                 <a href="tel:{{ $k->kontak }}">{{ $k->kontak }}</a>
                                                             </td>
-                                                            <td>{{ $k->omset }}</td>
-                                                            <td class="left">.....</td>
-                                                            <td class="left">{{ ucwords($k->sebagai) }}</td>
+                                                            <td class="patient-img">
+                                                                <img src="{{ asset('storage/'.$k->ktp) }}" alt="Kartu Indentitas {{ $k->nama }}">
+                                                            </td>
                                                             <td>
-                                                                <a href="/admin/pegawai/kasir/{{ $k->slug }}/edit" class="btn btn-primary btn-xs">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </a>
-                                                                <form action="/admin/pegawai/kasir/{{ $k->slug }}" method="POST">
-                                                                    @method('delete')
-                                                                    @csrf
-                                                                    <button class="btn btn-danger btn-xs" onclick="return confirm('Apakah Anda yakin?')">
-                                                                        <i class="fa fa-trash-o"></i>
-                                                                    </button>
-                                                                </form>
+                                                                <div class="btn-group btn-group-circle btn-group-solid">
+                                                                    <a href="/admin/pegawai/kasir/{{ $k->slug }}" type="button" class="btn btn-info"><i class="fa fa-info"></i></a>
+                                                                    <a href="/admin/pegawai/kasir/{{ $k->slug }}/edit" type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                                                    <form action="/admin/pegawai/kasir/{{ $k->slug }}" method="POST">
+                                                                        @method('delete')
+                                                                        @csrf
+                                                                        <button type="submit" class="btn deepPink-bgcolor" onclick="return confirm('Apakah Anda yakin?')">
+                                                                            <i class="fa fa-trash-o"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
                                                             </td>
                                                         </tr>
                                                         @endforeach
