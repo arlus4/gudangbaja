@@ -15,7 +15,9 @@ class PegawaiPreOrderController extends Controller
      */
     public function index()
     {
-        //
+        return view('pegawai/sales/transaksi/preorder/index', [
+            'title' => 'Daftar Pre-Order Pelanggan'
+        ]);
     }
 
     /**

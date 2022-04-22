@@ -14,7 +14,7 @@
                         <a class="parent-item" href="/admin/dashboard">Beranda</a>&nbsp;
                         <i class="fa fa-angle-right"></i>
                     </li>
-                    <li><a class="parent-item" href="/admin/pegawai">Pegawai</a>&nbsp;<i class="fa fa-angle-right"></i>
+                    <li><a class="parent-item" href="/admin/pegawai/sales">Daftar Sales</a>&nbsp;<i class="fa fa-angle-right"></i>
                     </li>
                     <li class="active">{{ $title }}</li>
                 </ol>

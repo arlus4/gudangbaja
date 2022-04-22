@@ -57,14 +57,22 @@
                                 </thead>
                                 <tbody>
                                     <tr class="odd gradeX">
-                                        <td> Pesanan </td>
+                                        <td> ... </td>
+                                        <td> ... </td>
+                                        <td> ... </td>
+                                        <td> ... </td>
+                                        <td> ... </td>
+                                        <td> ... </td>
+                                        <td> ... </td>
+                                        <td> ... </td>
+                                        {{-- <td> Pesanan </td>
                                         <td> Detail </td>
                                         <td> Pada </td>
                                         <td> Halaman </td>
                                         <td> Show </td>
                                         <td> Dengan </td>
                                         <td> Data </td>
-                                        <td> Spreedsheet </td>
+                                        <td> Spreedsheet </td> --}}
                                         <td> 
                                             <div class="btn-group btn-group-circle btn-group-solid">
                                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#info"><i class="fa fa-info"></i></button>

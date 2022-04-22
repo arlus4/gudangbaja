@@ -23,69 +23,99 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="overview-panel purple">
                             <div class="symbol">
-                                <i class="fa fa-users usr-clr"></i>
+                                {{-- <i class="fa fa-suitcase"></i> --}}
+                                <i class="fa fa-frown-o"></i>
                             </div>
                             <div class="value white">
                                 <p class="sbold addr-font-h1" data-counter="counterup">0</p>
-                                <p>PEGAWAI</p>
+                                <a href="/admin/pegawai/sales"><p><strong>SALES</p></strong></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="overview-panel blue-bgcolor">
                             <div class="symbol">
-                                <i class="fa fa-cubes"></i>
+                                {{-- <i class="fa fa-cubes"></i> --}}
+                                <i class="fa fa-frown-o"></i>
                             </div>
                             <div class="value white">
                                 <p class="sbold addr-font-h1" data-counter="counterup">0</p>
-                                <p>PRODUK</p>
+                                <a href="/admin/produk"><p><strong>PRODUK</strong></p></a>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="col-lg-3 col-sm-6">
+                        <div class="overview-panel blue-bgcolor">
+                            <div class="symbol">
+                                <i class="fa fa-handshake-o"></i>
+                                <i class="fa fa-frown-o"></i>
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" data-counter="counterup">0</p>
+                                <a href="/admin/transaksi/penjualan"><p><strong>PESANAN</strong></p></a>
+                            </div>
+                        </div>
+                    </div> --}}
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="overview-panel purple">
+                            <div class="symbol">
+                                {{-- <i class="fa fa-desktop"></i> --}}
+                                <i class="fa fa-frown-o"></i>
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" data-counter="counterup">0</p>
+                                <a href="/admin/pegawai/kasir"><p><strong>KASIR</strong></p></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="overview-panel deepPink-bgcolor">
+                            <div class="symbol">
+                                {{-- <i class="fa fa-home"></i> --}}
+                                <i class="fa fa-frown-o"></i>
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" data-counter="counterup">0</p>
+                                <a href="#"><p><strong>HUTANG TOKO</strong></p></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="overview-panel deepPink-bgcolor">
+                            <div class="symbol">
+                                {{-- <i class="fa fa-bank"></i> --}}
+                                <i class="fa fa-frown-o"></i>
+                            </div>
+                            <div class="value white">
+                                <p class="sbold addr-font-h1" data-counter="counterup">0</p>
+                                <a href="#"><p><strong>HUTANG PABRIK</strong></p></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="overview-panel orange">
                             <div class="symbol">
-                                <i class="fa fa-handshake-o"></i>
+                                {{-- <i class="fa fa-users usr-clr"></i> --}}
+                                <i class="fa fa-frown-o"></i>
                             </div>
                             <div class="value white">
                                 <p class="sbold addr-font-h1" data-counter="counterup">0</p>
-                                <p>PESANAN</p>
+                                <a href="/admin/pelanggan"><p><strong>PELANGGAN</strong></p></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="overview-panel purple">
+                    {{-- <div class="col-lg-3 col-sm-6">
+                        <div class="overview-panel orange">
                             <div class="symbol">
-                                <i class="fa fa-user-circle"></i>
+                                <i class="fa fa-user"></i>
+                                <i class="fa fa-frown-o"></i>
                             </div>
                             <div class="value white">
                                 <p class="sbold addr-font-h1" data-counter="counterup">0</p>
-                                <p>PELANGGAN</p>
+                                <a href="#"><p><strong>RETAIL</strong></p></a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="overview-panel deepPink-bgcolor">
-                            <div class="symbol">
-                                <i class="fa fa-home"></i>
-                            </div>
-                            <div class="value white">
-                                <p class="sbold addr-font-h1" data-counter="counterup">0</p>
-                                <p>HUTANG TOKO</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="overview-panel deepPink-bgcolor">
-                            <div class="symbol">
-                                <i class="fa fa-bank"></i>
-                            </div>
-                            <div class="value white">
-                                <p class="sbold addr-font-h1" data-counter="counterup">0</p>
-                                <p>HUTANG PABRIK</p>
-                            </div>
-                        </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <!-- end widget -->
@@ -94,7 +124,9 @@
                 <div class="col-sm-12">
                     <div class="card card-box">
                         <div class="card-head">
-                            <header>Penjualan</header>
+                            <a href="/admin/transaksi/penjualan">
+                                <header>Penjualan</header>
+                            </a>
                             <div class="tools">
                                 <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
                                 <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>

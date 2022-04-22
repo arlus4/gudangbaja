@@ -11,11 +11,12 @@
                 </div>
                 <ol class="breadcrumb page-breadcrumb pull-right">
                     <li>
-                        <i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="#">Home</a>&nbsp;
+                        <i class="fa fa-home"></i>&nbsp;
+                        <a class="parent-item" href="/admin/dashboard">Beranda</a>&nbsp;
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li>
-                        <a class="parent-item" href="#">Daftar Sales</a>&nbsp;
+                        <a class="parent-item" href="/admin/pegawai/kasir">Daftar Kasir</a>&nbsp;
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li class="active">{{ $title }}</li>

@@ -77,7 +77,7 @@ class AdminPegawai_KasirController extends Controller
     public function show(Pegawai $kasir)
     {
         return view('admin/kontak/pegawai/kasir/show', [
-            'title' => 'Profil Sales',
+            'title' => 'Profil Kasir',
             'kasir' => $kasir,
         ]);
     }

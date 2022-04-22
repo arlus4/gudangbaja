@@ -23,7 +23,7 @@
                     </div>
                 </li>
                 <li class="nav-item start active open">
-                    <a href="{{ route('pegawai.dashboard') }}" class="nav-link nav-toggle">
+                    <a href="{{ route('pegawai.dashboard') }}" class="nav-link">
                     <i class="material-icons">dashboard</i>
                         <span class="title">Beranda</span>
                     </a>
@@ -48,17 +48,12 @@
                         </li>
                         <li class="nav-item">
                             <a href="/kategori" class="nav-link nav-toggle">
-                                <i class="fa fa-bookmark"></i> Kategori
+                                <i class="fa fa-mail-reply"></i> Barang Masuk
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/diskon" class="nav-link nav-toggle">
-                                <i class="fa fa-handshake-o"></i> Diskon
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/diskon" class="nav-link nav-toggle">
-                                <i class="fa fa-bank"></i> Pajak
+                                <i class="fa fa-mail-forward"></i> Barang Keluar
                             </a>
                         </li>
                     </ul>

@@ -1,5 +1,5 @@
-@extends('pegawai/kasir/layouts/main')
-@section('pegawai/kasir/index')
+@extends('pegawai/sales/layouts/main')
+@section('pegawai/sales/index')
 
 <!-- start page content -->
 <div class="page-content-wrapper">
