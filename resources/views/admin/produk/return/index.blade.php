@@ -22,14 +22,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tabbable-line">
-                    <ul class="nav customtab nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a href="#table" class="nav-link active" data-bs-toggle="tab">Tabel {{ $title }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#graph" class="nav-link" data-bs-toggle="tab">Grafik {{ $title }}</a>
-                        </li>
-                    </ul>
                     <div class="tab-content">
                         <div class="tab-pane active fontawesome-demo" id="table">
                             <div class="row">
@@ -43,34 +35,21 @@
                                                 <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
                                             </div>
                                         </div>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-md-6 col-sm-6 col-6">
-                                                    <div class="btn-group">
-                                                        <button id="addRow1" class="btn btn-info">
-                                                            Update Harga Barang <i class="fa fa-external-link"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="card-body ">
                                             <div class="table-scrollable">
                                                 <table id="example1" class="display" style="width:100%;">
                                                     <thead>
                                                         <tr>
+                                                            <th>Tanggal Masuk</th>
                                                             <th>Kode</th>
                                                             <th>Nama</th>
-                                                            <th>Jumlah</th>
-                                                            <th>Harga Dasar</th>
-                                                            <th>Tanggal Harga Terkini</th>
-                                                            <th>Harga Supplier</th>
-                                                            <th>Harga Retail</th>
+                                                            <th>Jumlah Produk</th>
+                                                            <th>Keterangan</th>
                                                             <th>Aksi</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr class="odd gradeX">
-                                                            <td>...</td>
-                                                            <td>...</td>
                                                             <td>...</td>
                                                             <td>...</td>
                                                             <td>...</td>
@@ -93,25 +72,6 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="graph">
-                            <div class="row">
-                                <div class="card">
-                                    <div class="card-head">
-                                        <header>Grafik {{ $title }}</header>
-                                        <div class="tools">
-                                            <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
-                                            <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
-                                            <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="recent-report__chart">
-                                            <div id="chart1"></div>
                                         </div>
                                     </div>
                                 </div>

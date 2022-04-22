@@ -19,7 +19,6 @@ class PelangganController extends Controller
      */
     public function index()
     {
-        // return Pelanggan::where('user_id', auth()->user()->id)->get();
         return view('admin/kontak/pelanggan/index', [
             'title' => 'Daftar Pelanggan',
             'pelanggan' => Pelanggan::where('user_id', auth()->user()->id)->get(),
@@ -79,7 +78,10 @@ class PelangganController extends Controller
      */
     public function show(Pelanggan $pelanggan)
     {
-        //
+        return view('admin/kontak/pelanggan/show', [
+            'title' => 'Profil Pelanggan',
+            'pelanggan' => $pelanggan,
+        ]);
     }
 
     /**

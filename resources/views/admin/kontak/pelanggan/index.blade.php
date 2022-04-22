@@ -47,11 +47,11 @@
                                         <th></th>
                                         <th>Kode</th>
                                         <th>Nama</th>
-                                        <th>Alamat</th>
-                                        <th>Kontak</th>
+                                        {{-- <th>Alamat</th> --}}
+                                        {{-- <th>Kontak</th> --}}
                                         <th>Sales</th>
                                         <th>Kategori</th>
-                                        <th>Foto KTP</th>
+                                        {{-- <th>Foto KTP</th> --}}
                                         <th>Nota</th>
                                         <th>Jatuh Tempo</th>
                                         <th>Keterangan</th>
@@ -68,14 +68,13 @@
                                         </td>
                                         <td>{{ $p->kode }}</td>
                                         <td>{{ $p->nama }}</td>
-                                        <td>{{ $p->alamat }}</td>
-                                        <td>{{ $p->kontak }}</td>
-                                        <td>....</td>
-                                        {{-- <td>{{ $p->pegawais->kode }}</td> --}}
+                                        {{-- <td>{{ $p->alamat }}</td> --}}
+                                        {{-- <td>{{ $p->kontak }}</td> --}}
+                                        <td>{{ $p->pegawai->nama }}</td>
                                         <td>{{ ucwords($p->kategori) }}</td>
-                                        <td class="patient-img">
+                                        {{-- <td class="patient-img">
                                             <img src="{{ asset('storage/'.$p->photo_ktp) }}" alt="Kartu Indentitas {{ $p->nama }}">
-                                        </td>
+                                        </td> --}}
                                         <td>....</td>
                                         <td>....</td>
                                         <td>Lunas/Belum</td>

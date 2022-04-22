@@ -77,6 +77,11 @@
                                 <i class="fa fa-home"></i> Harga Retail 
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/admin/return" class="nav-link">
+                                <i class="fa fa-ban"></i> Return Barang
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -86,11 +91,11 @@
                         <span class="arrow "></span>
                     </a>
                     <ul class="sub-menu">                        
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="/admin/transaksi/pesanan" class="nav-link">
                                 <i class="fa fa-edit"></i> Pesanan 
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a href="/admin/transaksi/pre_order" class="nav-link">
                                 <i class="fa fa-shopping-cart"></i> Pre-Order
@@ -101,7 +106,11 @@
                                 <i class="fa fa-mail-reply"></i> Pembelian
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a href="/admin/transaksi/penjualan" class="nav-link">
+                                <i class="fa fa-mail-forward"></i> Penjualan
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">

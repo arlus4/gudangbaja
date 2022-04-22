@@ -30,17 +30,17 @@
                         <div class="card-body no-padding height-9">
                             <div class="row">
                                 <div class="profile-userpic">
-                                    <img src="{{ asset('admin/img/prof/prof4.jpg') }}" class="img-responsive" alt="">
+                                    <img src="{{ asset('storage/'.$kasir->photo) }}" class="img-responsive" alt="Photo Profil {{ $kasir->nama }}">
                                 </div>
                             </div>
                             <div class="profile-usertitle">
-                                <div class="profile-usertitle-name"> Celena Anderson </div>
-                                <div class="profile-usertitle-job"> Jr. Clerk </div>
+                                <div class="profile-usertitle-name"> {{ $kasir->nama }} </div>
+                                <div class="profile-usertitle-job"> {{ ucwords($kasir->sebagai) }} </div>
                             </div>
                             <!-- END SIDEBAR USER TITLE -->
                         </div>
                     </div>
-                    <div class="card">
+                    {{-- <div class="card">
                         <div class="card-head">
                             <header>About Me</header>
                         </div>
@@ -83,13 +83,55 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <!-- END BEGIN PROFILE SIDEBAR -->
                 <!-- BEGIN PROFILE CONTENT -->
                 <div class="profile-content">
                     <div class="row">
                         <div class="card">
+                            <div class="card-head">
+                                <header>Informasi Kasir</header>
+                            </div>
+                            <div class="card-body no-padding height-9">
+                                <div class="profile-desc">
+                                    {{ $kasir->alamat }}
+                                </div>
+                                {{-- <ul class="list-group list-group-unbordered">
+                                    <li class="list-group-item">
+                                        <b>Gender </b>
+                                        <div class="profile-desc-item pull-right">Female</div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Operation Done </b>
+                                        <div class="profile-desc-item pull-right">30+</div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Degree </b>
+                                        <div class="profile-desc-item pull-right">M.Com.</div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Designation</b>
+                                        <div class="profile-desc-item pull-right">Jr. Clerk</div>
+                                    </li>
+                                </ul>
+                                <div class="row list-separated profile-stat">
+                                    <div class="col-md-4 col-sm-4 col-6">
+                                        <div class="uppercase profile-stat-title"> 37 </div>
+                                        <div class="uppercase profile-stat-text"> Projects </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-6">
+                                        <div class="uppercase profile-stat-title"> 51 </div>
+                                        <div class="uppercase profile-stat-text"> Tasks </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-6">
+                                        <div class="uppercase profile-stat-title"> 61 </div>
+                                        <div class="uppercase profile-stat-text"> Uploads </div>
+                                    </div>
+                                </div> --}}
+                            </div>
+                        </div>
+                        {{-- <div class="card">
                             <div class="card-head">
                                 <header>Bar Chart</header>
                                 <div class="tools">
@@ -103,7 +145,7 @@
                                     <div id="chart1"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <!-- END PROFILE CONTENT -->

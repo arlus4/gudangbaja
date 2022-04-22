@@ -12,7 +12,7 @@
     <meta name="author" content="Gudangbaja" />
     <title>Gudang Baja | Prototype</title>
     <!-- google font -->
-    <link href="../../../../../../fonts.googleapis.com/css6079.css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/fonts.googleapis.com/css6079.css?family=Poppins:300,400,500,600,700') }}" rel="stylesheet" type="text/css" />
     <!-- icons -->
     <link href="{{ asset('admin/fonts/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin/fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
@@ -35,6 +35,7 @@
 	<link href="{{ asset('admin/css/pages/formlayout.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin/css/plugins.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('admin/css/responsive.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('admin/plugins/sweet-alert/sweetalert2.min.css') }}" rel="stylesheet">
     <!-- data tables -->
     <link href="{{ asset('admin/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- dropzone -->
@@ -76,7 +77,7 @@
     </div>
 
     <!-- start js include path -->
-    <script src="../../../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" data-cfasync="false"></script>
+    <script src="{{ asset('admin/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}" data-cfasync="false"></script>
     <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('admin/plugins/popper/popper.js') }}"></script>
     <script src="{{ asset('admin/plugins/jquery-blockui/jquery.blockui.min.js') }}"></script>
@@ -103,6 +104,7 @@
 	<script src="{{ asset('admin/js/pages/material-select/getmdl-select.js') }}"></script>
 	<script src="{{ asset('admin/plugins/flatpicker/js/flatpicker.min.js') }}"></script>
 	<script src="{{ asset('admin/js/pages/date-time/date-time.init.js') }}"></script>
+    <script src="{{ asset('admin/plugins/material/material.min.js') }}"></script>
     <!--apex chart-->
     <script src="{{ asset('admin/plugins/apexcharts/apexcharts.min.js') }}"></script>
 	<!-- Page Specific JS File -->
@@ -124,6 +126,8 @@
     <script src="{{ asset('admin/plugins/select2/js/select2.js') }}"></script>
     <script src="{{ asset('admin/js/pages/select2/select2-init.js') }}"></script>
     <!-- end js include path -->
+
+
 </body>
 
 

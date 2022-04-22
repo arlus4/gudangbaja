@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Pegawai;
 use App\Models\Pelanggan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -20,10 +21,14 @@ class AdminPegawai_SalesController extends Controller
      */
     public function index()
     {
+        // $pelanggan = DB::table('pelanggans')->select('pegawai_id')->addSelect('nama')->get();
+        // $pelanggan = $query->addSelect('nama')->get();
+        // return $pelanggan;
         $pegawai = Pegawai::where('sebagai', 'sales')->get();
         return view('admin/kontak/pegawai/sales/index', [
             'title' => 'Daftar Sales',
             'pegawai' => $pegawai,
+            // 'pelanggan' => $pelanggan->nama
         ]);
     }
 

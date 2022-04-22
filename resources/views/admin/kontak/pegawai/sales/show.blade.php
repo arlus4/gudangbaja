@@ -30,27 +30,25 @@
                         <div class="card-body no-padding height-9">
                             <div class="row">
                                 <div class="profile-userpic">
-                                    <img src="{{ asset('admin/img/prof/prof4.jpg') }}" class="img-responsive" alt="">
+                                    <img src="{{ asset('storage/'.$sales->photo) }}" class="img-responsive" alt="Photo Profil {{ $sales->nama }}">
                                 </div>
                             </div>
                             <div class="profile-usertitle">
-                                <div class="profile-usertitle-name"> Celena Anderson </div>
-                                <div class="profile-usertitle-job"> Jr. Clerk </div>
+                                <div class="profile-usertitle-name"> {{ $sales->nama }} </div>
+                                <div class="profile-usertitle-job"> {{ ucwords($sales->sebagai) }} </div>
                             </div>
                             <!-- END SIDEBAR USER TITLE -->
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-head">
-                            <header>About Me</header>
+                            <header>Informasi Pegawai</header>
                         </div>
                         <div class="card-body no-padding height-9">
                             <div class="profile-desc">
-                                Hello I am Celena Anderson a Clerk in Xyz College Surat. I love to work with
-                                all my college staff and
-                                seniour professors.
+                                {{ $sales->alamat }}
                             </div>
-                            <ul class="list-group list-group-unbordered">
+                            {{-- <ul class="list-group list-group-unbordered">
                                 <li class="list-group-item">
                                     <b>Gender </b>
                                     <div class="profile-desc-item pull-right">Female</div>
@@ -81,7 +79,7 @@
                                     <div class="uppercase profile-stat-title"> 61 </div>
                                     <div class="uppercase profile-stat-text"> Uploads </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -91,7 +89,7 @@
                     <div class="row">
                         <div class="card">
                             <div class="card-head">
-                                <header>Bar Chart</header>
+                                <header>Grafik Pendapatan Pegawai</header>
                                 <div class="tools">
                                     <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
                                     <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
@@ -104,7 +102,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card">
+                        {{-- <div class="card">
                             <div class="card-head">
                                 <header>Toko yang Dipegang</header>
                             </div>
@@ -116,7 +114,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <!-- END PROFILE CONTENT -->

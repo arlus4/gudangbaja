@@ -12,7 +12,7 @@
                 <ol class="breadcrumb page-breadcrumb pull-right">
                     <li>
                         <i class="fa fa-home"></i>&nbsp;
-                        <a class="parent-item" href="/">Home</a>&nbsp;
+                        <a class="parent-item" href="/admin/dashboard">Home</a>&nbsp;
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li class="active">{{ $title }}</li>
@@ -45,54 +45,37 @@
                                 <thead>
                                     <tr>
                                         <th> Tanggal Pesan </th>
-                                        <th> Kode Toko </th>
                                         <th> Nama Toko </th>
                                         <th> Nama Sales </th>
-                                        <th> Kode Barang </th>
-                                        <th> Nama Barang </th>
-                                        <th> Jumlah Barang </th>
+                                        <th> Total Barang </th>
                                         <th> Nota </th>
                                         <th> Tanggal Jatuh Tempo </th>
                                         <th> Keterangan </th>
-                                        <th> Status </th>
+                                        <th> Total Bayar </th>
                                         <th> Aksi </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="odd gradeX">
-                                        <td> ... </td>
-                                        <td> ... </td>
-                                        <td> ... </td>
-                                        <td> ... </td>
-                                        <td> ... </td>
-                                        <td> ... </td>
-                                        <td> ... </td>
-                                        <td> ... </td>
-                                        <td> ... </td>
-                                        <td> ... </td>
-                                        <td>
-                                            <span class="label label-sm label-success"> Approved </span>
-                                        </td>
-                                        <td class="valigntop">
-                                            <div class="btn-group">
-                                                <button class="btn btn-xs deepPink-bgcolor dropdown-toggle no-margin" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Actions <i class="fa fa-angle-down"></i>
-                                                </button>
-                                                <ul class="dropdown-menu pull-left" role="menu">
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="icon-info"></i> Lihat </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="icon-note"></i> Ubah </a>
-                                                    </li>
-                                                    <li class="divider"> </li>
-                                                    <li>
-                                                        <a href="javascript:;">
-                                                            <i class="icon-trash"></i> Hapus </a>
-                                                    </li>
-                                                </ul>
+                                        <td> Pesanan </td>
+                                        <td> Detail </td>
+                                        <td> Pada </td>
+                                        <td> Halaman </td>
+                                        <td> Show </td>
+                                        <td> Dengan </td>
+                                        <td> Data </td>
+                                        <td> Spreedsheet </td>
+                                        <td> 
+                                            <div class="btn-group btn-group-circle btn-group-solid">
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#info"><i class="fa fa-info"></i></button>
+                                                <a href="#" type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                                <form action="#" method="POST">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button type="submit" class="btn deepPink-bgcolor" onclick="return confirm('Apakah Anda yakin?')">
+                                                        <i class="fa fa-trash-o"></i>
+                                                    </button>
+                                                </form>
                                             </div>
                                         </td>
                                     </tr>

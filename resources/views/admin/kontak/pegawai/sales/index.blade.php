@@ -22,8 +22,16 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="tabbable-line">
+                    <ul class="nav customtab nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a href="#data" class="nav-link active" data-bs-toggle="tab">Data Sales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#rangking" class="nav-link" data-bs-toggle="tab">Rangking Sales</a>
+                        </li>
+                    </ul>
                     <div class="tab-content">
-                        <div class="tab-pane active fontawesome-demo" id="tab1">
+                        <div class="tab-pane active fontawesome-demo" id="data">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="card card-box">
@@ -52,15 +60,15 @@
                                                             <th></th>
                                                             <th>Kode</th>
                                                             <th>Nama</th>
-                                                            <th>Alamat</th>
+                                                            {{-- <th>Alamat</th> --}}
                                                             <th>Kontak</th>
-                                                            <th>KTP</th>
-                                                            <th>Toko yang Dipegang</th>
-                                                            <th>Nota Hutang</th>
-                                                            <th>Jatuh Tempo</th>
+                                                            {{-- <th>KTP</th> --}}
+                                                            {{-- <th>Toko yang Dipegang</th> --}}
+                                                            {{-- <th>Nota Hutang</th> --}}
+                                                            {{-- <th>Jatuh Tempo</th> --}}
                                                             <th>Keterangan</th>
                                                             <th>Omset</th>
-                                                            <th>Sebagai </th>
+                                                            {{-- <th>Sebagai </th> --}}
                                                             <th> Action </th>
                                                         </tr>
                                                     </thead>
@@ -72,19 +80,19 @@
                                                             </td>
                                                             <td class="left">{{ $s->kode }}</td>
                                                             <td>{{ $s->nama }}</td>
-                                                            <td class="left">{{ $s->alamat }}</td>
+                                                            {{-- <td class="left">{{ $s->alamat }}</td> --}}
                                                             <td class="left">
                                                                 <a href="tel:{{ $s->kontak }}">{{ $s->kontak }}</a>
                                                             </td>
-                                                            <td class="patient-img">
+                                                            {{-- <td class="patient-img">
                                                                 <img src="{{ asset('storage/'.$s->ktp) }}" alt="Kartu Indentitas {{ $s->nama }}">
-                                                            </td>
-                                                            <td class="left">{{ $s->pegang_toko }}</td>
-                                                            <td class="left">.....</td>
-                                                            <td class="left">.....</td>
+                                                            </td> --}}
+                                                            {{-- <td class="left">{{ $pelanggan }}</td> --}}
+                                                            {{-- <td class="left">.....</td> --}}
+                                                            {{-- <td class="left">.....</td> --}}
                                                             <td class="left">{{ $s->keterangan }}</td>
                                                             <td>{{ $s->omset }}</td>
-                                                            <td class="left">{{ ucwords($s->sebagai) }}</td>
+                                                            {{-- <td class="left">{{ ucwords($s->sebagai) }}</td> --}}
                                                             <td> 
                                                                 <div class="btn-group btn-group-circle btn-group-solid">
                                                                     <a href="/admin/pegawai/sales/{{ $s->slug }}" type="button" class="btn btn-info"><i class="fa fa-info"></i></a>
@@ -103,6 +111,25 @@
                                                     </tbody>
                                                 </table>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="rangking">
+                            <div class="row">
+                                <div class="card">
+                                    <div class="card-head">
+                                        <header>Rangking Sales</header>
+                                        <div class="tools">
+                                            <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                                            <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+                                            <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="recent-report__chart">
+                                            <div id="chart1"></div>
                                         </div>
                                     </div>
                                 </div>
