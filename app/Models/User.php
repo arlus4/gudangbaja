@@ -2,18 +2,16 @@
 
 namespace App\Models;
 
-use App\Models\Produk;
-use App\Models\Pegawai;
-use App\Models\Pelanggan;
-use App\Models\Transaksi;
-use Laravel\Sanctum\HasApiTokens;
-use Laravel\Jetstream\HasProfilePhoto;
-use Illuminate\Notifications\Notifiable;
-use Cviebrock\EloquentSluggable\Sluggable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Jetstream\HasTeams;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Laravel\Sanctum\HasApiTokens;
+
 
 class User extends Authenticatable
 {
@@ -21,15 +19,18 @@ class User extends Authenticatable
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
+    use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
+
+    protected $table = 'users';
 
     /**
      * The attributes that aren't mass assignable.
      *
      * @var array
      */
-    // protected $guard = 'users';
+    protected $guarded = ['id', 'created_at'];
 
     /**
      * The attributes that are mass assignable.
@@ -37,11 +38,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'nama',
-        'username',
-        'is_admin',
-        'email',
-        'password',
+        'nama', 'username', 'email', 'password', 'is_admin',
     ];
 
     /**
@@ -73,7 +70,6 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
     public function getRouteKeyName()
     {
         return 'slug';
@@ -83,28 +79,28 @@ class User extends Authenticatable
     {
         return [
             'slug' => [
-                'source' => 'nama'
+                'source' => 'kode'
             ]
         ];
     }
 
-    public function pegawai()
-    {
-        return $this->hasMany(Pegawai::class);
-    }
+    // public function pegawai()
+    // {
+    //     return $this->hasMany(Pegawai::class);
+    // }
 
     public function produks()
     {
         return $this->hasMany(Produk::class);
     }
 
-    public function pelanggans()
+    public function agen()
     {
-        return $this->hasMany(Pelanggan::class);
+        return $this->hasMany(Agen::class);
     }
 
-    public function transaksis()
+    public function kasir()
     {
-        return $this->hasMany(Transaksi::class);
+        return $this->hasMany(Kasir::class);
     }
 }

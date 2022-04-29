@@ -3,14 +3,18 @@
     <div class="page-header-inner ">
         <!-- logo start -->
         <div class="page-logo">
-            <a href="/dashboard">
+            <a href="/admin/dashboard">
                 {{-- <span class="logo-icon material-icons">store_mall_directory</span> --}}
                 <span class="logo-default">Gudangbaja</span> 
             </a>
         </div>
         <!-- logo end -->
         <ul class="nav navbar-nav navbar-left in">
-            <li><a href="#" class="menu-toggler sidebar-toggler"><i class="icon-menu"></i></a></li>
+            <li>
+                <a href="#" class="menu-toggler sidebar-toggler">
+                    <i class="icon-menu"></i>
+                </a>
+            </li>
         </ul>
         <form class="search-form-opened" action="#" method="GET">
             <div class="input-group">
@@ -70,7 +74,7 @@
                 <!-- start manage user dropdown -->
                 <li class="dropdown dropdown-user">
                     <a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <img alt="" class="img-circle " src="{{ asset('admin/img/dp.jpg') }}" />
+                        <img alt="" class="img-circle " src="{{ asset('assets/img/dp.jpg') }}" />
                         <span class="username username-hide-on-mobile"> {{ auth()->user()->nama }} </span>
                         <i class="fa fa-angle-down"></i>
                     </a>

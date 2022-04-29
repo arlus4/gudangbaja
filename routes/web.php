@@ -1,31 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\Admin\ProdukController;
-use App\Http\Controllers\Admin\PesananController;
-use App\Http\Controllers\Admin\PreOrderController;
-use App\Http\Controllers\Admin\PelangganController;
-use App\Http\Controllers\Admin\PembelianController;
-use App\Http\Controllers\Admin\PenjualanController;
-// use App\Http\Controllers\Pegawai\DashboardController;
-use App\Http\Controllers\Admin\AdminLoginController;
-use App\Http\Controllers\Admin\AdminProfilController;
+use App\Http\Controllers\AgenLoginController;
+use App\Http\Controllers\AdminLoginController;
+use App\Http\Controllers\KasirLoginController;
+use App\Http\Controllers\Admin\AdminAgenController;
+use App\Http\Controllers\Agen\AgenProdukController;
+use App\Http\Controllers\Admin\AdminKasirController;
+use App\Http\Controllers\Agen\AgenProfileController;
+use App\Http\Controllers\Kasir\KasirProdukController;
 use App\Http\Controllers\Admin\AdminPegawaiController;
-use App\Http\Controllers\Admin\Produk_RetailController;
-use App\Http\Controllers\Admin\Produk_ReturnController;
-use App\Http\Controllers\Pegawai\PegawaiLoginController;
-use App\Http\Controllers\Admin\Produk_SupplierController;
-use App\Http\Controllers\Pegawai\PegawaiProdukController;
-use App\Http\Controllers\Pegawai\PegawaiProfilController;
-use App\Http\Controllers\Pegawai\PegawaiPesananController;
-use App\Http\Controllers\Pegawai\PegawaiPreOrderController;
-use App\Http\Controllers\Admin\AdminPegawai_KasirController;
-use App\Http\Controllers\Admin\AdminPegawai_SalesController;
-use App\Http\Controllers\Pegawai\PegawaiDashboardController;
-use App\Http\Controllers\Pegawai\PegawaiPelangganController;
-use App\Http\Controllers\Pelanggan\PelangganLoginController;
-use App\Http\Controllers\Pelanggan\PelangganDashboardController;
+use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Agen\AgenDashboardController;
+use App\Http\Controllers\Agen\AgenPelangganController;
+use App\Http\Controllers\Kasir\KasirProfileController;
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminPelangganController;
+use App\Http\Controllers\Kasir\KasirDashboardController;
+use App\Http\Controllers\Admin\AdminProdukStokController;
+use App\Http\Controllers\Admin\AdminProdukHargaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,63 +32,51 @@ use App\Http\Controllers\Pelanggan\PelangganDashboardController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 // Login Admin
 Route::get('/admin/login', [AdminLoginController::class, 'index'])->name('admin.login');
 Route::post('/admin/login', [AdminLoginController::class, 'authenticate']);
-
-//Login Pegawai
-Route::get('/pegawai/login', [PegawaiLoginController::class, 'showLoginForm'])->name('pegawai.login');
-Route::post('/pegawai/login', [PegawaiLoginController::class, 'authenticate']);
-
-//Login Pelanggan
-Route::get('/pelanggan/login', [PelangganLoginController::class, 'showLoginForm'])->name('pelanggan.login');
-Route::post('/pelanggan/login', [PelangganLoginController::class, 'authenticate']);
-
 // Route untuk Admin
-Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('admin.index');
-    });
-    Route::resource('admin/profil', AdminProfilController::class);
-    Route::resource('/admin/pegawai/sales', AdminPegawai_SalesController::class);
-    Route::get('/admin/pegawai/sales/checkSlug', [AdminPegawai_SalesController::class, 'checkSlug']);
+Route::middleware(['auth:sanctum', 'verified', 'isadmin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::resource('/admin/profil', AdminProfileController::class);
     Route::resource('/admin/pegawai/admin', AdminPegawaiController::class);
-    Route::resource('/admin/pegawai/kasir', AdminPegawai_KasirController::class);
-    Route::get('/admin/pegawai/kasir/checkSlug', [AdminPegawai_KasirController::class, 'checkSlug']);
-    Route::resource('/admin/pelanggan', PelangganController::class);
-    Route::resource('/admin/produk', ProdukController::class);
-    Route::resource('/admin/return', Produk_ReturnController::class);
-    Route::resource('/admin/harga_supplier', Produk_SupplierController::class);
-    Route::resource('/admin/harga_retail', Produk_RetailController::class);
-    Route::resource('/admin/transaksi/pre_order', PreOrderController::class);
-    // Route::resource('/admin/transaksi/pesanan', PesananController::class);
-    Route::resource('/admin/transaksi/pembelian', PembelianController::class);
-    Route::resource('/admin/transaksi/penjualan', PenjualanController::class);
-    // Route::get('/dashboard', function () {
-    //     return view('dashboard');
-    // })->name('dashboard');
+    Route::get('/admin/pegawai/agen/agenSlug', [AdminAgenController::class, 'agenSlug']);
+    Route::resource('/admin/pegawai/agen', AdminAgenController::class);
+    Route::get('/admin/pegawai/kasir/kasirSlug', [AdminKasirController::class, 'kasirSlug']);
+    Route::resource('/admin/pegawai/kasir', AdminKasirController::class);
+    Route::get('/admin/pelanggan/pelangganSlug', [AdminPelangganController::class, 'pelangganSlug']);
+    Route::resource('/admin/pelanggan', AdminPelangganController::class);
+    Route::resource('/admin/produk/stok', AdminProdukStokController::class);
+    Route::resource('/admin/produk/harga', AdminProdukHargaController::class);
 });
 
-// // Route untuk Pegawai
-Route::middleware('pegawai')->group(function () {
-    Route::get('/pegawai/dashboard', [PegawaiDashboardController::class, 'index'])->name('pegawai.dashboard');
-    // Route::get('/pegawai/dashboard', function () {
-    //     return view('pegawai.index');
-    // });
-    Route::resource('/pegawai/profil', PegawaiProfilController::class);
-    Route::resource('/pegawai/produk', PegawaiProdukController::class);
-    Route::resource('/pegawai/pelanggan', PegawaiPelangganController::class);
-    Route::resource('/pegawai/pesanan', PegawaiPesananController::class);
-    Route::resource('/pegawai/pre_order', PegawaiPreOrderController::class);
+// Login Sales
+Route::get('/agen/login', [AgenLoginController::class, 'index'])->name('login.agen');
+Route::post('/agen/login', [AgenLoginController::class, 'authenticate']);
+// Route untuk Sales
+Route::middleware('auth:agen', 'verified', 'isagen')->group(function () {
+    Route::get('/agen/dashboard', [AgenDashboardController::class, 'index'])->name('agen.dashboard');
+    Route::resource('/agen/profil', AgenProfileController::class);
+    Route::resource('/agen/pelanggan', AgenPelangganController::class);
+    Route::resource('/agen/produk', AgenProdukController::class);
 });
 
-// // Route untuk pelanggan
-// Route::middleware('pelanggan')->group(function () {
-//     Route::get('/pelanggan/dashboard', [PelangganDashboardController::class, 'index'])->name('pelanggan.dashboard');
-// });
-// Route::middleware(['auth:sanctum', 'verified', 'pelanggan'])->group(function () {
-//     // Route::get
+// Login Kasir
+Route::get('/kasir/login', [KasirLoginController::class, 'index'])->name('login.kasir');
+Route::post('/kasir/login', [KasirLoginController::class, 'authenticate']);
+// Route untuk Kasir
+Route::middleware('auth:kasir', 'verified', 'iskasir')->group(function () {
+    Route::get('/kasir/dashboard', [KasirDashboardController::class, 'index'])->name('kasir.dashboard');
+    Route::resource('/kasir/profil', KasirProfileController::class);
+    Route::resource('/kasir/produk/stok', KasirProdukController::class);
+    Route::get('/kasir/produk/stok/stokSlug', [KasirProdukController::class, 'stokSlug']);
+});
+
+// Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
 // });

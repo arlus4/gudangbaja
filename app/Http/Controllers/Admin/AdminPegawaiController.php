@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\User;
-use App\Models\Pegawai;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class AdminPegawaiController extends Controller
 {
@@ -18,7 +16,7 @@ class AdminPegawaiController extends Controller
     public function index()
     {
         $admin = User::where('is_admin', 'true')->get();
-        return view('admin/kontak/pegawai/admin/index', [
+        return view('admin/pegawai/admin/index', [
             'title' => 'Data Admin',
             'admin' => $admin,
         ]);
@@ -31,7 +29,7 @@ class AdminPegawaiController extends Controller
      */
     public function create()
     {
-        return view('admin/kontak/pegawai/admin/tambah', [
+        return view('admin/pegawai/admin/tambah', [
             'title' => 'Tambah Admin Baru',
             'pegawai' => User::all(),
         ]);
@@ -45,34 +43,16 @@ class AdminPegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        // $data = $request->validate([
-        //     'nama'      => 'required | min:10 | max:255',
-        //     'kode'      => 'required | min:10 | max:255',
-        //     'email'     => 'required | email | max:255',
-        //     'username'  => 'required | min:5 | max:255 | unique:users',
-        //     'password'  => 'required | min:8 | max:255',
-        //     'kontak'    => 'required | min:10 | max:255',
-        //     'alamat'    => 'required | min:10 | max:255',
-        //     'role'      => 'required',
-        // ]);
-        // $data['password'] = Hash::make($data['password']);
-
-        // dd($data);
-
-        // User::create($data);
-
-        // $request->session()->flash('success', 'Pegawai telah ditambah!');
-
-        // return redirect('/pegawai');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pegawai  $pegawai
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Pegawai $pegawai)
+    public function show(User $user)
     {
         //
     }
@@ -80,10 +60,10 @@ class AdminPegawaiController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pegawai  $pegawai
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pegawai $pegawai)
+    public function edit(User $user)
     {
         //
     }
@@ -92,10 +72,10 @@ class AdminPegawaiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pegawai  $pegawai
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pegawai $pegawai)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -103,10 +83,10 @@ class AdminPegawaiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pegawai  $pegawai
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pegawai $pegawai)
+    public function destroy(User $user)
     {
         //
     }

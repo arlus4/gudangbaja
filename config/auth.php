@@ -40,9 +40,13 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'pegawai' => [
+        'agen' => [
             'driver' => 'session',
-            'provider' => 'pegawais',
+            'provider' => 'agens',
+        ],
+        'kasir' => [
+            'driver' => 'session',
+            'provider' => 'kasirs',
         ],
         'pelanggan' => [
             'driver' => 'session',
@@ -72,14 +76,23 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'pegawais' => [
+        'agens' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Pegawai::class,
+            'model' => App\Models\Agen::class,
+        ],
+        'kasirs' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Kasir::class,
         ],
         'pelanggans' => [
             'driver' => 'eloquent',
             'model' => App\Models\Pelanggan::class,
         ],
+
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
     ],
 
     /*
@@ -104,16 +117,24 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
-        'pegawais' => [
-            'provider' => 'pegawais',
+        'agens' => [
+            'provider' => 'agens',
             'table' => 'password_resets',
             'expire' => 60,
+            'throttle' => 60,
+        ],
+        'kasirs' => [
+            'provider' => 'kasirs',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
         ],
         'pelanggans' => [
             'provider' => 'pelanggans',
             'table' => 'password_resets',
             'expire' => 60,
-        ]
+            'throttle' => 60,
+        ],
     ],
 
     /*

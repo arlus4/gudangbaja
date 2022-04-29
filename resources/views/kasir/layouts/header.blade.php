@@ -3,9 +3,10 @@
     <div class="page-header-inner ">
         <!-- logo start -->
         <div class="page-logo">
-            <a href="index-2.html">
-                <span class="logo-icon material-icons fa-rotate-45">school</span>
-                <span class="logo-default">Smart</span> </a>
+            <a href="/kasir/dashboard">
+                {{-- <span class="logo-icon material-icons">store_mall_directory</span> --}}
+                <span class="logo-default">Gudangbaja</span> 
+            </a>
         </div>
         <!-- logo end -->
         <ul class="nav navbar-nav navbar-left in">
@@ -66,67 +67,17 @@
                 </li>
                 <!-- end notification dropdown -->
 
-                <!-- start message dropdown -->
-                <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
-                    <a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <i class="fa fa-envelope-o"></i>
-                        <span class="badge headerBadgeColor2"> 2 </span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="external">
-                            <h3><span class="bold">Messages</span></h3>
-                            <span class="notification-label cyan-bgcolor">New 2</span>
-                        </li>
-                        <li>
-                            <ul class="dropdown-menu-list small-slimscroll-style" data-handle-color="#637283">
-                                <li>
-                                    <a href="#">
-                                        <span class="photo">
-                                            <img src="../assets/img/prof/prof2.jpg" class="img-circle" alt="">
-                                        </span>
-                                        <span class="subject">
-                                            <span class="from"> Sarah Smith </span>
-                                            <span class="time">Just Now </span>
-                                        </span>
-                                        <span class="message"> Jatin I found you on LinkedIn... </span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="dropdown-menu-footer">
-                                <a href="#"> All Messages </a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <!-- end message dropdown -->
-
                 <!-- start manage user dropdown -->
                 <li class="dropdown dropdown-user">
                     <a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <img alt="" class="img-circle " src="../assets/img/dp.jpg" />
-                        <span class="username username-hide-on-mobile"> {{ auth()->user()->name }} </span>
+                        <img alt="" class="img-circle " src="{{ asset('storage/'. Auth::guard('kasir')->user()->photo_profil) }}" />
+                        <span class="username username-hide-on-mobile"> {{ Auth::guard('kasir')->user()->nama }} </span>
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>
-                            <a href="#">
+                            <a href="/kasir/profil">
                                 <i class="icon-user"></i> Profile </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon-settings"></i> Settings
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon-directions"></i> Help
-                            </a>
-                        </li>
-                        <li class="divider"> </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon-lock"></i> Lock
-                            </a>
                         </li>
                         <li>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();

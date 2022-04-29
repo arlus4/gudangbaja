@@ -7,7 +7,7 @@
             <div class="page-bar">
                 <div class="page-title-breadcrumb">
                     <div class=" pull-left">
-                        <div class="page-title">Dashboard</div>
+                        {{-- <div class="page-title">Dashboard {{ ucwords(auth()->guard('pegawai')->user()->sebagai) }}!</div> --}}
                     </div>
                     <ol class="breadcrumb page-breadcrumb pull-right">
                         <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="#">Home</a>&nbsp;<i
@@ -23,7 +23,9 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="overview-panel purple">
                             <div class="symbol">
-                                <i class="fa fa-users usr-clr"></i>
+                                <a href="/pegawai">
+                                    <i class="fa fa-users usr-clr"></i>
+                                </a>
                             </div>
                             <div class="value white">
                                 <p class="sbold addr-font-h1" data-counter="counterup">0</p>
@@ -34,7 +36,9 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="overview-panel deepPink-bgcolor">
                             <div class="symbol">
-                                <i class="fa fa-cubes"></i>
+                                <a href="/stok">
+                                    <i class="fa fa-cubes"></i>
+                                </a>
                             </div>
                             <div class="value white">
                                 <p class="sbold addr-font-h1" data-counter="counterup">0</p>
@@ -45,7 +49,9 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="overview-panel orange">
                             <div class="symbol">
-                                <i class="fa fa-money"></i>
+                                <a href="/pesanan">
+                                    <i class="fa fa-money"></i>
+                                </a>
                             </div>
                             <div class="value white">
                                 <p class="sbold addr-font-h1" data-counter="counterup">0</p>
@@ -56,7 +62,9 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="overview-panel blue-bgcolor">
                             <div class="symbol">
-                                <i class="fa fa-address-card"></i>
+                                <a href="/pelanggan">
+                                    <i class="fa fa-address-card"></i>
+                                </a>
                             </div>
                             <div class="value white">
                                 <p class="sbold addr-font-h1" data-counter="counterup">0</p>
@@ -68,7 +76,7 @@
             </div>
             <!-- end widget -->
             <!-- chart start -->
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-sm-6">
                     <div class="card card-box">
                         <div class="card-head">
@@ -103,7 +111,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- Chart end -->
         </div>
     </div>

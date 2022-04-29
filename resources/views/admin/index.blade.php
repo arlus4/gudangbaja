@@ -27,8 +27,8 @@
                                 <i class="fa fa-frown-o"></i>
                             </div>
                             <div class="value white">
-                                <p class="sbold addr-font-h1" data-counter="counterup">0</p>
-                                <a href="/admin/pegawai/sales"><p><strong>SALES</p></strong></a>
+                                <p class="sbold addr-font-h1" data-counter="counterup">{{ $sales }}</p>
+                                <a href="/admin/pegawai/agen"><p><strong>SALES</p></strong></a>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                                 <i class="fa fa-frown-o"></i>
                             </div>
                             <div class="value white">
-                                <p class="sbold addr-font-h1" data-counter="counterup">0</p>
+                                <p class="sbold addr-font-h1" data-counter="counterup">{{ $produk }}</p>
                                 <a href="/admin/produk"><p><strong>PRODUK</strong></p></a>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                                 <i class="fa fa-frown-o"></i>
                             </div>
                             <div class="value white">
-                                <p class="sbold addr-font-h1" data-counter="counterup">0</p>
+                                <p class="sbold addr-font-h1" data-counter="counterup">{{ $kasir }}</p>
                                 <a href="/admin/pegawai/kasir"><p><strong>KASIR</strong></p></a>
                             </div>
                         </div>
@@ -99,7 +99,7 @@
                                 <i class="fa fa-frown-o"></i>
                             </div>
                             <div class="value white">
-                                <p class="sbold addr-font-h1" data-counter="counterup">0</p>
+                                <p class="sbold addr-font-h1" data-counter="counterup">{{ $pelanggan }}</p>
                                 <a href="/admin/pelanggan"><p><strong>PELANGGAN</strong></p></a>
                             </div>
                         </div>

@@ -54,10 +54,7 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
-        'authadmin' => \App\Http\Middleware\AuthAdmin::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
-        'pegawai' => \App\Http\Middleware\Pegawai::class,
-        'pelanggan' => \App\Http\Middleware\Pelanggan::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
@@ -66,5 +63,9 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'isadmin' => \App\Http\Middleware\IsAdmin::class,
+        'isagen' => \App\Http\Middleware\IsAgen::class,
+        'iskasir' => \App\Http\Middleware\IsKasir::class,
+        'ispelanggan' => \App\Http\Middleware\IsPelanggan::class,
     ];
 }

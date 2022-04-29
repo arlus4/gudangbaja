@@ -12,26 +12,17 @@
                 <li class="sidebar-user-panel">
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="{{ asset('admin/img/dp.jpg') }}" class="img-circle user-img-circle" alt="User Image" />
+                            <img src="{{ asset('storage/'. Auth::guard('kasir')->user()->photo_profil) }}" class="img-circle user-img-circle" alt="Photo Profil {{ Auth::guard('kasir')->user()->nama }}" />
                         </div>
                         <div class="pull-left info">
-                            <h4> {{ auth()->user()->name }}</h4>
-                            <a href="#"><i class="fa fa-circle user-online"></i>
-                                <span class="txtOnline">Online</span>
-                            </a>
+                            <h4> {{ Auth::guard('kasir')->user()->nama }}</h4>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item start active open">
-                    <a href="/dashboard" class="nav-link nav-toggle">
+                    <a href="{{ route('kasir.dashboard') }}" class="nav-link">
                     <i class="material-icons">dashboard</i>
                         <span class="title">Beranda</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link nav-toggle">
-                        <i class="material-icons">face</i>
-                        <span class="title">Pelanggan</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -42,26 +33,27 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item">
-                            <a href="/stok" class="nav-link">
-                                <i class="fa fa-cubes"></i> Stok 
+                            <a href="/kasir/produk/stok" class="nav-link">
+                                <i class="fa fa-cubes"></i> Stok Barang
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/kategori" class="nav-link nav-toggle">
-                                <i class="fa fa-bookmark"></i> Kategori
+                            <a href="/pegawai/barang_masuk" class="nav-link nav-toggle">
+                                <i class="fa fa-mail-reply"></i> Barang Masuk
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/diskon" class="nav-link nav-toggle">
-                                <i class="fa fa-handshake-o"></i> Diskon
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/diskon" class="nav-link nav-toggle">
-                                <i class="fa fa-bank"></i> Pajak
+                            <a href="/pegawai/barang_keluar" class="nav-link nav-toggle">
+                                <i class="fa fa-mail-forward"></i> Barang Keluar
                             </a>
                         </li>
                     </ul>
+                </li>
+                {{-- <li class="nav-item">
+                    <a href="#" class="nav-link nav-toggle">
+                        <i class="material-icons">face</i>
+                        <span class="title">Pelanggan</span>
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle">
@@ -151,7 +143,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

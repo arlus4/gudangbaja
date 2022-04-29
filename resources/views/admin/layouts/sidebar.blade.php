@@ -12,24 +12,24 @@
                 <li class="sidebar-user-panel">
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="{{ asset('admin/img/dp.jpg') }}" class="img-circle user-img-circle" alt="User Image" />
+                            <img src="{{ asset('assets/img/dp.jpg') }}" class="img-circle user-img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
                             <h4> {{ auth()->user()->nama }}</h4>
                         </div>
                     </div>
                 </li>
-                <li class="nav-item start active open">
-                    <a href="/admin/dashboard" class="nav-link nav-toggle">
+                <li class="nav-item {{ Request::is('admin/dashboard') ? 'active' : '' }}">
+                    <a href="/admin/dashboard" class="nav-link">
                     <i class="material-icons">dashboard</i>
                         <span class="title">Beranda</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ Request::is('admin/pegawai/*') ? 'active open' : '' }}">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="material-icons">group</i>
                         <span class="title">Pegawai</span>
-                        <span class="arrow"></span>
+                        <span class="arrow {{ Request::is('admin/pegawai/*') ? 'open' : '' }}"></span>
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item">
@@ -38,7 +38,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/pegawai/sales" class="nav-link">
+                            <a href="/admin/pegawai/agen" class="nav-link">
                                 <i class="fa fa-briefcase"></i> Sales 
                             </a>
                         </li>
@@ -49,53 +49,80 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="/admin/pelanggan" class="nav-link">
-                    <i class="material-icons">person</i>
-                        <span class="title">Pelanggan</span>
-                    </a>
-                </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle">
-                        <i class="material-icons">storage</i>
-                        <span class="title">Produk</span>
+                        <i class="material-icons">person</i>
+                        <span class="title">Pelanggan</span>
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item">
-                            <a href="/admin/produk" class="nav-link">
-                                <i class="fa fa-cubes"></i> Stok Barang
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-plus-circle"></i> Pelanggan Baru
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/harga_supplier" class="nav-link">
-                                <i class="fa fa-building"></i> Harga Supplier 
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/harga_retail" class="nav-link">
-                                <i class="fa fa-home"></i> Harga Retail 
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/return" class="nav-link">
-                                <i class="fa fa-ban"></i> Return Barang
+                            <a href="/admin/pelanggan" class="nav-link">
+                                <i class="fa fa-child"></i> Data Pelanggan
                             </a>
                         </li>
                     </ul>
+                </li> --}}
+                <li class="nav-item {{ Request::is('admin/pelanggan*') ? 'active' : '' }}">
+                    <a href="/admin/pelanggan" class="nav-link">
+                        <i class="material-icons">person</i>
+                        <span class="title">Pelanggan</span>
+                    </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item nav-item {{ Request::is('admin/produk/*') ? 'active open' : '' }}">
                     <a href="javascript:;" class="nav-link nav-toggle">
-                        <i class="material-icons">attach_money</i>
+                        <i class="material-icons">storage</i>
+                        <span class="title">Produk</span>
+                        <span class="arrow {{ Request::is('admin/produk/*') ? 'open' : '' }}"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item">
+                            <a href="/admin/produk/stok" class="nav-link">
+                                <i class="fa fa-cubes"></i> Stok Produk
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/produk/harga" class="nav-link">
+                                <i class="fa fa-money"></i> Harga Produk 
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="fa fa-ban"></i> Return Produk
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fa fa-ban"></i> Produk ke Pabrik
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="fa fa-ban"></i> Produk dari Pelanggan
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                {{-- <li class="nav-item">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="material-icons">add_shopping_cart</i>
                         <span class="title">Transaksi</span>
                         <span class="arrow "></span>
                     </a>
                     <ul class="sub-menu">                        
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="/admin/transaksi/pesanan" class="nav-link">
                                 <i class="fa fa-edit"></i> Pesanan 
                             </a>
-                        </li> --}}
+                        </li>
                         <li class="nav-item">
                             <a href="/admin/transaksi/pre_order" class="nav-link">
                                 <i class="fa fa-shopping-cart"></i> Pre-Order
@@ -170,11 +197,11 @@
                                 <span class="title">Laporan Hutang</span>
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="/laporan/stok_opname" class="nav-link"> 
                                 <span class="title">Laporan Stok Opname</span>
                             </a>
-                        </li> --}}
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -196,20 +223,11 @@
                         </li>
                     </ul>
                 </li>
-                {{-- <li class="nav-item">
-                    <a href="#" class="nav-link nav-toggle">
+                <li class="nav-item">
+                    <a href="javascript:;" class="nav-link">
                         <i class="material-icons">build</i>
                         <span class="title">Pengaturan</span>
-                        <span class="arrow"></span>
-                        <span class="label label-rouded label-menu label-danger">new</span>
                     </a>
-                    <ul class="sub-menu">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link ">
-                                <span class="title">Inbox</span>
-                            </a>
-                        </li>
-                    </ul>
                 </li> --}}
             </ul>
         </div>

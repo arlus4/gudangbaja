@@ -2,55 +2,35 @@
 
 namespace App\Models;
 
-use App\Models\Pegawai;
-use App\Models\Transaksi;
-use Laravel\Sanctum\HasApiTokens;
-use Laravel\Jetstream\HasProfilePhoto;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
-use Cviebrock\EloquentSluggable\Sluggable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Jetstream\HasTeams;
+use Laravel\Sanctum\HasApiTokens;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Pelanggan extends Authenticatable
 {
     use Sluggable;
     use HasFactory;
     use HasApiTokens;
+    use HasFactory;
     use HasProfilePhoto;
+    use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
-
-    /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
-    protected $guard = 'pelanggans';
-
-    //fungsi eager loading laravel
-    protected $with = ['users', 'pegawai'];
-
-    /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = ['id', 'created_at'];
 
     /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
-    // protected $fillable = [
-    //     'nama',
-    //     'username',
-    //     'email',
-    //     'password',
-    // ];
+    protected $fillable = [
+        'nama', 'username', 'email', 'password',
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -81,12 +61,17 @@ class Pelanggan extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
     public function getRouteKeyName()
     {
         return 'slug';
     }
+
     //pakai third-library EloquentSluggable
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
     public function sluggable(): array
     {
         return [
@@ -101,13 +86,8 @@ class Pelanggan extends Authenticatable
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function pegawai()
+    public function agen()
     {
-        return $this->belongsTo(Pegawai::class);
+        return $this->belongsTo(Agen::class, 'agen_id');
     }
-
-    // public function transaksi()
-    // {
-    //     return $this->belongsTo(Transaksi::class);
-    // }
 }
