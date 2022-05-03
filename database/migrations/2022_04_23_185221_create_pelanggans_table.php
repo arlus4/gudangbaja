@@ -15,14 +15,17 @@ class CreatePelanggansTable extends Migration
     {
         Schema::create('pelanggans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->nullable()->constrained()->onUpdate('cascade');
             $table->foreignId('agen_id');
             $table->string('kode')->unique();
             $table->string('slug')->unique();
             $table->string('nama');
+            $table->string('kontak');
             $table->enum('kategori', ['supplier', 'retail']);
             $table->text('alamat');
+            $table->boolean('status')->default(false);
             $table->rememberToken();
+            $table->string('limit')->nullable();
             $table->string('total_pembelian')->nullable();
             $table->string('photo_ktp', 2048)->nullable();
             $table->string('photo_toko', 2048)->nullable();

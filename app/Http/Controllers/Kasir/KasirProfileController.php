@@ -16,7 +16,7 @@ class KasirProfileController extends Controller
     public function index()
     {
         return view('kasir/profil', [
-            'title' => 'Profil Kasir'
+            'title' => 'Profil'
         ]);
     }
 

@@ -16,9 +16,14 @@ class AdminProdukHargaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(ProdukHarga $produkHarga)
+    public function index()
     {
         $stok = ProdukHarga::with('produk_stok')->get();
+        // $stok = ProdukHarga::all();
+        // $stok = DB::table('produk_stoks')
+        //     ->join('produk_hargas', 'produk_stoks.id', '=', 'produk_hargas.stok_id')
+        //     ->select('produk_hargas.*', 'produk_stoks.kode', 'produk_stoks.nama');
+        // dd($stok);
         return view('admin/produk/harga/index', [
             'title' => 'Harga Produk',
             'stoks' => $stok

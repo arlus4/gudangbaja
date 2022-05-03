@@ -19,13 +19,13 @@
                         </div>
                     </div>
                 </li>
-                <li class="nav-item start active open">
-                    <a href="{{ route('kasir.dashboard') }}" class="nav-link">
+                <li class="nav-item {{ Request::is('kasir/dashboard') ? 'active' : '' }}">
+                    <a href="/kasir/dashboard" class="nav-link">
                     <i class="material-icons">dashboard</i>
                         <span class="title">Beranda</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ Request::is('kasir/produk/*') ? 'active open' : '' }}">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="material-icons">storage</i>
                         <span class="title">Produk</span>
@@ -38,12 +38,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/pegawai/barang_masuk" class="nav-link nav-toggle">
+                            <a href="/pegawai/barang_masuk" class="nav-link">
                                 <i class="fa fa-mail-reply"></i> Barang Masuk
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/pegawai/barang_keluar" class="nav-link nav-toggle">
+                            <a href="/pegawai/barang_keluar" class="nav-link">
                                 <i class="fa fa-mail-forward"></i> Barang Keluar
                             </a>
                         </li>

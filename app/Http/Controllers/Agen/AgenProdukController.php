@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Agen;
 
-use App\Http\Controllers\Controller;
+use App\Models\ProdukStok;
 use App\Models\ProdukHarga;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AgenProdukController extends Controller
 {
@@ -15,7 +16,11 @@ class AgenProdukController extends Controller
      */
     public function index()
     {
-        return view('agen/produk/index');
+        $stok = ProdukStok::all();
+        return view('agen/produk/index', [
+            'title' => 'Daftar Produk',
+            'stoks' => $stok
+        ]);
     }
 
     /**
@@ -47,7 +52,12 @@ class AgenProdukController extends Controller
      */
     public function show(ProdukHarga $produkHarga)
     {
-        //
+        $produkHarga = ProdukHarga::with('produk_stok')->get();
+        dd($produkHarga);
+        return view('agen/produk/show', [
+            'title' => 'Daftar Produk',
+            'harga' => $produkHarga
+        ]);
     }
 
     /**

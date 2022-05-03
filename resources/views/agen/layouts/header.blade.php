@@ -76,7 +76,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>
-                            <a href="javascript:;">
+                            <a href="/agen/profil">
                                 <i class="icon-user"></i> Profile </a>
                         </li>
                         <li>

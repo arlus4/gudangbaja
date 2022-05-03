@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('username')->unique();
             $table->string('email');
+            $table->string('kontak');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('is_admin')->default(false);

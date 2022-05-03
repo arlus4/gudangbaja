@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Agen;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Pelanggan;
+use App\Models\Pesanan;
 use Illuminate\Http\Request;
-use \Cviebrock\EloquentSluggable\Services\SlugService;
 
-class AgenPelangganController extends Controller
+class AdminPesananController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class AgenPelangganController extends Controller
      */
     public function index()
     {
-        return view('agen/pelanggan/index', [
-            'title' => 'Daftar Pelanggan'
+        return view('admin/transaksi/pesanan/index', [
+            'title' => 'Daftar Pesanan'
         ]);
     }
 
@@ -28,9 +27,7 @@ class AgenPelangganController extends Controller
      */
     public function create()
     {
-        return view('agen/pelanggan/create', [
-            'title' => 'Tambah Pelanggan'
-        ]);
+        //
     }
 
     /**
@@ -47,10 +44,10 @@ class AgenPelangganController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pelanggan  $pelanggan
+     * @param  \App\Models\Pesanan  $pesanan
      * @return \Illuminate\Http\Response
      */
-    public function show(Pelanggan $pelanggan)
+    public function show(Pesanan $pesanan)
     {
         //
     }
@@ -58,10 +55,10 @@ class AgenPelangganController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pelanggan  $pelanggan
+     * @param  \App\Models\Pesanan  $pesanan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pelanggan $pelanggan)
+    public function edit(Pesanan $pesanan)
     {
         //
     }
@@ -70,10 +67,10 @@ class AgenPelangganController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pelanggan  $pelanggan
+     * @param  \App\Models\Pesanan  $pesanan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pelanggan $pelanggan)
+    public function update(Request $request, Pesanan $pesanan)
     {
         //
     }
@@ -81,18 +78,11 @@ class AgenPelangganController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pelanggan  $pelanggan
+     * @param  \App\Models\Pesanan  $pesanan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pelanggan $pelanggan)
+    public function destroy(Pesanan $pesanan)
     {
         //
-    }
-
-    // Fungsi Otomatisasi Slug
-    public function tokoSlug(Request $request)
-    {
-        $slug = SlugService::createSlug(Pelanggan::class, 'slug', $request->kode);
-        return response()->json(['slug' => $slug]);
     }
 }

@@ -30,9 +30,7 @@
                     <div class="card">
                         <div class="card-body no-padding height-9">
                             <div class="row">
-                                <div class="profile-userpic">
-                                    <img src="{{ asset('storage/'.$agen->photo) }}" class="img-responsive" alt="Photo Profil {{ $agen->nama }}">
-                                </div>
+                                <img src="{{ asset('storage/'.$agen->photo_profil) }}" class="img-responsive" alt="Photo Profil {{ $agen->nama }}">
                             </div>
                             <div class="profile-usertitle">
                                 <div class="profile-usertitle-name"> {{ $agen->nama }} </div>
@@ -49,38 +47,32 @@
                             <div class="profile-desc">
                                 {{ $agen->alamat }}
                             </div>
-                            {{-- <ul class="list-group list-group-unbordered">
+                            <ul class="list-group list-group-unbordered">
                                 <li class="list-group-item">
-                                    <b>Gender </b>
-                                    <div class="profile-desc-item pull-right">Female</div>
+                                    <b>Kontak </b>
+                                    <div class="profile-desc-item pull-right">{{ $agen->kontak }}</div>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Operation Done </b>
-                                    <div class="profile-desc-item pull-right">30+</div>
+                                    <b>Usia </b>
+                                    <div class="profile-desc-item pull-right">{{ \Carbon\Carbon::parse($agen->tanggal_lahir)->diffInYears() }} Tahun</div>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Degree </b>
-                                    <div class="profile-desc-item pull-right">M.Com.</div>
+                                    <b>Jenis Kelamin </b>
+                                    <div class="profile-desc-item pull-right">{{ ucwords($agen->jenis_kelamin) }}</div>
                                 </li>
                                 <li class="list-group-item">
-                                    <b>Designation</b>
-                                    <div class="profile-desc-item pull-right">Jr. Clerk</div>
+                                    <b>Mulai Bekerja</b>
+                                    <div class="profile-desc-item pull-right">{{ $agen->mulai_bekerja }}</div>
                                 </li>
                             </ul>
-                            <div class="row list-separated profile-stat">
-                                <div class="col-md-4 col-sm-4 col-6">
-                                    <div class="uppercase profile-stat-title"> 37 </div>
-                                    <div class="uppercase profile-stat-text"> Projects </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-6">
-                                    <div class="uppercase profile-stat-title"> 51 </div>
-                                    <div class="uppercase profile-stat-text"> Tasks </div>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-6">
-                                    <div class="uppercase profile-stat-title"> 61 </div>
-                                    <div class="uppercase profile-stat-text"> Uploads </div>
-                                </div>
-                            </div> --}}
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body no-padding height-9">
+                            <div class="row">
+                                <img src="{{ asset('storage/'.$agen->photo_ktp) }}" class="img-responsive" alt="Photo Profil {{ $agen->nama }}">
+                            </div>
+                            <!-- END SIDEBAR USER TITLE -->
                         </div>
                     </div>
                 </div>

@@ -12,7 +12,7 @@
                 <ol class="breadcrumb page-breadcrumb pull-right">
                     <li>
                         <i class="fa fa-home"></i>&nbsp;
-                        <a class="parent-item" href="/admin/dashboard">Home</a>&nbsp;
+                        <a class="parent-item" href="/admin/dashboard">Beranda</a>&nbsp;
                         <i class="fa fa-angle-right"></i>
                     </li>
                     <li class="active">{{ $title }}</li>
@@ -21,66 +21,66 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
-                    <div class="card-head">
-                        <header>Tabel {{ $title }}</header>
-                        <div class="tools">
-                            <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
-                            <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
-                            <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 col-6">
-                                <div class="btn-group">
-                                    <button id="addRow1" class="btn btn-info">
-                                        Tambah Pesanan Baru <i class="fa fa-plus"></i>
-                                    </button>
+                <div class="tabbable-line">
+                    <ul class="nav customtab nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a href="#data" class="nav-link active" data-bs-toggle="tab">Data Pesanan</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active fontawesome-demo" id="data">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card-box">
+                                        <div class="card-head">
+                                            <header>Tabel {{ $title }} </header>
+                                        </div>
+                                        <div class="card-body ">
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-6 col-6">
+                                                    <div class="btn-group">
+                                                        <a href="#" id="addRow" class="btn btn-info"> Tambah Pesanan Baru 
+                                                            <i class="fa fa-plus"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <table class="mdl-data-table ml-table-striped mdl-js-data-table mdl-data-table--selectable is-upgraded">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="mdl-data-table__cell--non-numeric">Name</th>
+                                                        <th class="mdl-data-table__cell--non-numeric">Address</th>
+                                                        <th>Quantity</th>
+                                                        <th>Tax</th>
+                                                        <th>Discount</th>
+                                                        <th>Aksi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
+                                                        <td class="mdl-data-table__cell--non-numeric">Gandhi road, Ahmedabad
+                                                        </td>
+                                                        <td>25</td>
+                                                        <td>$1.00</td>
+                                                        <td>$0.90</td>
+                                                        <td>
+											                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab margin-right-10 btn-success">
+											                    <i class="material-icons">add</i>
+											                </button>
+											                <button
+											                    class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored margin-right-4 btn-danger">
+											                    <i class="material-icons">delete</i>
+											                </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="table-scrollable">
-                            <table id="example1" class="display" style="width:100%;">
-                                <thead>
-                                    <tr>
-                                        <th> Tanggal Pesan </th>
-                                        <th> Nama Toko </th>
-                                        <th> Nama Sales </th>
-                                        <th> Total Barang </th>
-                                        <th> Nota </th>
-                                        <th> Tanggal Jatuh Tempo </th>
-                                        <th> Keterangan </th>
-                                        <th> Total Bayar </th>
-                                        <th> Aksi </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="odd gradeX">
-                                        <td> Pesanan </td>
-                                        <td> Detail </td>
-                                        <td> Pada </td>
-                                        <td> Halaman </td>
-                                        <td> Show </td>
-                                        <td> Dengan </td>
-                                        <td> Data </td>
-                                        <td> Spreedsheet </td>
-                                        <td> 
-                                            <div class="btn-group btn-group-circle btn-group-solid">
-                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#info"><i class="fa fa-info"></i></button>
-                                                <a href="#" type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
-                                                <form action="#" method="POST">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button type="submit" class="btn deepPink-bgcolor" onclick="return confirm('Apakah Anda yakin?')">
-                                                        <i class="fa fa-trash-o"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>

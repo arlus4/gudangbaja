@@ -4,10 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Notifications\Notifiable;
 
 class ProdukStok extends Model
 {
+    use Sluggable;
     use HasFactory;
+    use Notifiable;
 
     //fungsi eager loading laravel
     protected $with = ['kasirs', 'produk_hargas'];

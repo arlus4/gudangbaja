@@ -15,7 +15,9 @@ class AgenProfileController extends Controller
      */
     public function index()
     {
-        //
+        return view('agen/profil', [
+            'title' => 'Profil'
+        ]);
     }
 
     /**

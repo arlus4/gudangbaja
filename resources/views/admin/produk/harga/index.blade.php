@@ -33,7 +33,7 @@
                                 <div class="col-md-12">
                                     <div class="card card-box">
                                         <div class="card-head">
-                                            <header>Tabel {{ $title }}</header>
+                                            <header>Tabel {{ $title }}(Revisi yang ditampikan hanya produk harga terupdate)</header>
                                             <div class="tools">
                                                 <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
                                                 <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>

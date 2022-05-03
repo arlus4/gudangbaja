@@ -111,7 +111,7 @@
                         </li>
                     </ul>
                 </li>
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="material-icons">add_shopping_cart</i>
                         <span class="title">Transaksi</span>
@@ -140,7 +140,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle"> 
                         <i class="material-icons">assessment</i>
                         <span class="title">Laporan</span> 
@@ -203,8 +203,8 @@
                             </a>
                         </li>
                     </ul>
-                </li>
-                <li class="nav-item">
+                </li> --}}
+                {{-- <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="material-icons">business</i>
                         <span class="title">Manajemen Cabang</span>
@@ -222,8 +222,8 @@
                             </a>
                         </li>
                     </ul>
-                </li>
-                <li class="nav-item">
+                </li> --}}
+                {{-- <li class="nav-item">
                     <a href="javascript:;" class="nav-link">
                         <i class="material-icons">build</i>
                         <span class="title">Pengaturan</span>

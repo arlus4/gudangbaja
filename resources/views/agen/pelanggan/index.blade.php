@@ -48,7 +48,7 @@
                                         <th>Nama</th>
                                         <th>Alamat</th>
                                         <th>Kontak</th>
-                                        <th>Status</th>
+                                        <th>Kategori</th>
                                         <th>Nota</th>
                                         <th>Jatuh Tempo</th>
                                         <th>Keterangan</th>

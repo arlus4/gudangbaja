@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'arfan-lusiandro',
             'kode' => 'A1',
             'email' => 'admin@gmail.com',
+            'kontak' => '089616',
             'username' => 'admin',
             'is_admin' => true,
             'password' => bcrypt('password'),

@@ -33,8 +33,8 @@ class AdminKasirController extends Controller
      */
     public function create()
     {
-        return view('admin/pegawai/kasir/tambah', [
-            'title' => 'Tambah Sales Baru',
+        return view('admin/pegawai/kasir/create', [
+            'title' => 'Tambah Kasir Baru',
             'kasir' => Kasir::where('user_id', auth()->user()->id)->get(),
         ]);
     }
@@ -55,7 +55,10 @@ class AdminKasirController extends Controller
             'alamat'    => 'required',
             'username'  => 'required | unique:kasirs',
             'password'  => 'required | min:2 | max:255',
-            // 'kontak'    => 'required',
+            'kontak'    => 'required',
+            'tanggal_lahir' => 'required',
+            'jenis_kelamin' => 'required',
+            'mulai_bekerja' => 'required',
             'photo_profil'     => 'required | image | mimes:jpg,png,jpeg,gif,svg | max:2048',
             'photo_ktp'       => 'required | image | mimes:jpg,png,jpeg,gif,svg | max:2048',
         ]);

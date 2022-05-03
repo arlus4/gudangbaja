@@ -21,6 +21,10 @@ class CreateAgensTable extends Migration
             $table->string('nama');
             $table->string('username')->unique();
             $table->string('email');
+            $table->string('kontak');
+            $table->date('tanggal_lahir');
+            $table->enum('jenis_kelamin', ['pria', 'wanita']);
+            $table->date('mulai_bekerja');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('is_agen')->default(true);

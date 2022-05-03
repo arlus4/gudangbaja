@@ -12,7 +12,7 @@
     <meta name="author" content="SmartUniversity" />
     <title>Gudang Baja | Prototype</title>
     <!-- google font -->
-    <link href="../../../../../../fonts.googleapis.com/css6079.css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/fonts.googleapis.com/css6079.css?family=Poppins:300,400,500,600,700') }}" rel="stylesheet" type="text/css" />
     <!-- icons -->
     <link href="{{ asset('assets/fonts/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
@@ -77,8 +77,7 @@
     </div>
 
     <!-- start js include path -->
-    <script data-cfasync="false" src="../../../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
-    </script>
+    <script src="{{ asset('assets/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}" data-cfasync="false"></script>
     <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/popper/popper.js') }}"></script>
     <script src="{{ asset('assets/plugins/jquery-blockui/jquery.blockui.min.js') }}"></script>
@@ -91,6 +90,7 @@
     <script src="{{ asset('assets/plugins/bootstrap-inputmask/bootstrap-inputmask.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap-datepicker/datepicker-init.js') }}"></script>
+	<script src="{{ asset('assets/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}" charset="UTF-8"></script>
     <script src="{{ asset('assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker-init.js') }}" charset="UTF-8"></script>
     <script src="{{ asset('assets/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker-init.js') }}" charset="UTF-8"></script>
@@ -104,9 +104,11 @@
 	<script src="{{ asset('assets/js/pages/material-select/getmdl-select.js') }}"></script>
 	<script src="{{ asset('assets/plugins/flatpicker/js/flatpicker.min.js') }}"></script>
 	<script src="{{ asset('assets/js/pages/date-time/date-time.init.js') }}"></script>
+    <script src="{{ asset('assets/plugins/material/material.min.js') }}"></script>
     <!--apex chart-->
     <script src="{{ asset('assets/plugins/apexcharts/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('assets/js/pages/chart/chartjs/home-data.js') }}"></script>
+	<!-- Page Specific JS File -->
+	<script src="{{ asset('assets/js/pages/chart/apex/apexcharts.data.js') }}"></script>
     <!-- summernote -->
     <script src="{{ asset('assets/plugins/summernote/summernote.js') }}"></script>
     <script src="{{ asset('assets/js/pages/summernote/summernote-data.js') }}"></script>

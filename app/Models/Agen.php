@@ -24,8 +24,8 @@ class Agen extends Authenticatable
     use TwoFactorAuthenticatable;
 
     //fungsi eager loading laravel
-    // protected $with = ['users', 'pelanggans'];
-    protected $with = ['users'];
+    protected $with = ['users', 'pelanggan'];
+    // protected $with = ['users'];
 
     /**
      * The attributes that aren't mass assignable.

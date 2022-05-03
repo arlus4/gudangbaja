@@ -33,7 +33,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="kode">Kode Produk</label>
-                                    <input type="text" class="form-control @error('kode') is-invalid @enderror" id="kode" name="kode" value="{{ old('kode') }}" required auto-focus>
+                                    <input type="text" class="form-control @error('kode') is-invalid @enderror" id="kode" name="kode" value="{{ old('kode', $stok->kode) }}" required auto-focus>
                                     @error('kode')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="slug">Slug (Otomatis)</label>
-                                    <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{ old('slug') }}" required>
+                                    <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{ old('slug', $stok->slug) }}" required>
                                     @error('slug')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="nama">Nama Produk</label>
-                                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama') }}" required>
+                                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama', $stok->nama) }}" required>
                                     @error('nama')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -69,24 +69,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="jumlah_produk">Jumlah Produk</label>
-                                    <div class="input-group spinner">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-info" data-dir="dwn" type="button">
-                                                <span class="fa fa-minus"></span>
-                                            </button>
-                                        </span>
-                                        <input type="text" class="form-control text-center @error('jumlah_produk') is-invalid @enderror" id="jumlah_produk" name="jumlah_produk" min="0">
-                                        @error('jumlah_produk')
-                                        <div class="invalid-feedback">
-                                            <p class="text-danger">{{ $message }}</p>
-                                        </div>
-                                        @enderror
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-danger" data-dir="up" type="button">
-                                                <span class="fa fa-plus"></span>
-                                            </button>
-                                        </span>
+                                    <input type="text" class="form-control @error('jumlah_produk') is-invalid @enderror" id="jumlah_produk" name="jumlah_produk" value="{{ old('jumlah_produk', $stok->jumlah_produk) }}" required>
+                                    @error('jumlah_produk')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
                                     </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="deskripsi">Deskripsi</label>
@@ -95,7 +83,7 @@
                                         <p class="text-danger">{{ $message }}</p>
                                     </div>
                                     @enderror
-                                    <textarea name="deskripsi" id="deskripsi" class="form-control-textarea" rows="5" value="{{ old('deskripsi') }}" required></textarea>
+                                    <textarea name="deskripsi" id="deskripsi" class="form-control-textarea" rows="5" value="{{ old('deskripsi', $stok->desktipsi) }}" required></textarea>
                                 </div>
                                 <div class="col-lg-12 p-t-20 text-center">
                                     <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-circle btn-primary">Submit</button>

@@ -35,7 +35,7 @@ class AdminAgenController extends Controller
      */
     public function create()
     {
-        return view('admin/pegawai/agen/tambah', [
+        return view('admin/pegawai/agen/create', [
             'title' => 'Tambah Sales Baru',
             'agen' => Agen::where('user_id', auth()->user()->id)->get(),
         ]);
@@ -57,7 +57,10 @@ class AdminAgenController extends Controller
             'alamat'    => 'required',
             'username'  => 'required | unique:agens',
             'password'  => 'required | min:2 | max:255',
-            // 'kontak'    => 'required',
+            'kontak'    => 'required',
+            'tanggal_lahir' => 'required',
+            'jenis_kelamin' => 'required',
+            'mulai_bekerja' => 'required',
             'photo_profil'     => 'required | image | mimes:jpg,png,jpeg,gif,svg | max:2048',
             'photo_ktp'       => 'required | image | mimes:jpg,png,jpeg,gif,svg | max:2048',
         ]);

@@ -16,7 +16,7 @@ class CreateProdukHargasTable extends Migration
         Schema::create('produk_hargas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('stok_id');
+            $table->foreignId('stok_id')->reference('id')->on('produk_stoks');
             $table->date('harga_terkini');
             $table->decimal('harga_dasar');
             $table->decimal('harga_supplier');

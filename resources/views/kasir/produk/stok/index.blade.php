@@ -73,9 +73,9 @@
                                                             <td>{{ $s->deskripsi }}</td>
                                                             <td> 
                                                                 <div class="btn-group btn-group-circle btn-group-solid">
-                                                                    <a href="#" type="button" class="btn btn-info"><i class="fa fa-info"></i></a>
-                                                                    <a href="#" type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
-                                                                    <form action="#" method="POST">
+                                                                    <a href="/kasir/produk/stok/{{ $s->slug }}" type="button" class="btn btn-info"><i class="fa fa-info"></i></a>
+                                                                    <a href="/kasir/produk/stok/{{ $s->slug }}/edit" type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                                                    <form action="/kasir/produk/stok/{{ $s->slug }}" method="POST">
                                                                         @method('delete')
                                                                         @csrf
                                                                         <button type="submit" class="btn deepPink-bgcolor" onclick="return confirm('Apakah Anda yakin?')">

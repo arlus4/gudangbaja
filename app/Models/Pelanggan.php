@@ -23,14 +23,26 @@ class Pelanggan extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    //fungsi eager loading laravel
+    protected $with = ['users', 'agen'];
+
+    protected $table = 'pelanggans';
+
     /**
-     * The attributes that are mass assignable.
+     * The attributes that aren't mass assignable.
      *
-     * @var string[]
+     * @var array
      */
-    protected $fillable = [
-        'nama', 'username', 'email', 'password',
-    ];
+    protected $guarded = ['id', 'created_at'];
+
+    // /**
+    //  * The attributes that are mass assignable.
+    //  *
+    //  * @var string[]
+    //  */
+    // protected $fillable = [
+    //     'nama', 'username', 'email', 'password',
+    // ];
 
     /**
      * The attributes that should be hidden for serialization.
