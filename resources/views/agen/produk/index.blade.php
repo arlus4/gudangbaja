@@ -31,14 +31,14 @@
                         <div class="col-lg-3 col-md-6 col-12 col-sm-6">
                             <div class="blogThumb">
                                 <div class="thumb-center">
-                                    <img class="img-responsive" alt="user" src="../assets/img/course/course1.jpg">
+                                    <img class="img-responsive" src="{{ asset('storage/'.$stok->produk_stok->photo_produk) }}" alt="{{ $stok->produk_stok->nama }}">
                                 </div>
                                 <div class="course-box">
-                                    <h4>{{ $stok->nama }}</h4>
+                                    <h4>{{ $stok->produk_stok->nama }}</h4>
                                     <div class="text-muted">
-                                        <span class="m-r-10">{{ $stok->kode }}</span>
+                                        <span class="m-r-10">{{ $stok->produk_stok->kode }}</span>
                                     </div>
-                                    {{-- <p>
+                                    <p>
                                         <span>
                                             <i class="ti-alarm-clock"></i> Harga Supplier: {{ $stok->harga_supplier }}
                                         </span>
@@ -47,17 +47,17 @@
                                         <span>
                                             <i class="ti-user"></i> Harga Retail: {{ $stok->harga_retail }}
                                         </span>
-                                    </p> --}}
+                                    </p>
                                     <p>
                                         <span>{{ $stok->deskripsi }}</span>
                                     </p>
                                     <p>
                                         <span>
-                                            <i class="fa fa-archive"></i> Stok: {{ $stok->jumlah_produk }}
+                                            <i class="fa fa-archive"></i> Stok: {{ $stok->produk_stok->jumlah_produk }}
                                         </span>
                                     </p>
-                                    <a href="/agen/produk/{{ $stok->slug }}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-info">
-                                        Lihat Harga
+                                    <a href="/agen/produk/{{ $stok->produk_stok->slug }}" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-info">
+                                        Detail
                                     </a>
                                 </div>
                             </div>

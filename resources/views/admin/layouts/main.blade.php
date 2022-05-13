@@ -49,6 +49,7 @@
     <link href="{{ asset('assets/plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- favicon -->
     {{-- <link href="{{ asset('admin/img/favicon.ico') }}" rel="shortcut icon" /> --}}
+</head>
 <!-- END HEAD -->
 
 <body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-dark dark-sidebar-color logo-dark dark-theme">

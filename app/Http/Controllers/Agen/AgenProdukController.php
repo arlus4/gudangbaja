@@ -16,7 +16,7 @@ class AgenProdukController extends Controller
      */
     public function index()
     {
-        $stok = ProdukStok::all();
+        $stok = ProdukHarga::with('produk_stok')->get();
         return view('agen/produk/index', [
             'title' => 'Daftar Produk',
             'stoks' => $stok
@@ -47,26 +47,26 @@ class AgenProdukController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ProdukHarga  $produkHarga
+     * @param  \App\Models\ProdukHarga  $produk
      * @return \Illuminate\Http\Response
      */
-    public function show(ProdukHarga $produkHarga)
+    public function show(ProdukHarga $produk)
     {
-        $produkHarga = ProdukHarga::with('produk_stok')->get();
-        dd($produkHarga);
+        // $produk = ProdukHarga::with('produk_stok')->get();
+        // dd($produk);
         return view('agen/produk/show', [
-            'title' => 'Daftar Produk',
-            'harga' => $produkHarga
+            'title' => "Detail Produk",
+            'produk' => $produk
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ProdukHarga  $produkHarga
+     * @param  \App\Models\ProdukHarga  $produk
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProdukHarga $produkHarga)
+    public function edit(ProdukHarga $produk)
     {
         //
     }
@@ -75,10 +75,10 @@ class AgenProdukController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ProdukHarga  $produkHarga
+     * @param  \App\Models\ProdukHarga  $produk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProdukHarga $produkHarga)
+    public function update(Request $request, ProdukHarga $produk)
     {
         //
     }
@@ -86,10 +86,10 @@ class AgenProdukController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ProdukHarga  $produkHarga
+     * @param  \App\Models\ProdukHarga  $produk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProdukHarga $produkHarga)
+    public function destroy(ProdukHarga $produk)
     {
         //
     }

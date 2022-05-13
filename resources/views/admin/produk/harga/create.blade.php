@@ -32,15 +32,30 @@
                             <form method="POST" action="/admin/produk/harga" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <label class="control-label" for="stok_id">Daftar Produk </label>
+                                    <label class="control-label" for="stok_id">Daftar Kode Produk </label>
                                     <select class="form-select select2" name="stok_id" id="stok_id">
-                                        <option value="">Pilih Produk</option>
-                                        <optgroup label="Produk yang tersedia">
+                                        <option value="">Pilih Kode Produk</option>
+                                        <optgroup label="Kode Produk yang tersedia">
                                         @foreach ($stok as $s)
                                             @if (old('stok') == $s->id)
-                                                <option value="{{ $s->id }}" selected>{{ $s->kode }} {{ $s->nama }}</option>
+                                                <option value="{{ $s->id }}" selected>{{ $s->kode }}</option>
                                             @else
-                                                <option value="{{ $s->id }}">{{ $s->kode }} {{ $s->nama }}</option>
+                                                <option value="{{ $s->id }}">{{ $s->kode }}</option>
+                                            @endif
+                                        @endforeach
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="slug">Daftar Nama Produk </label>
+                                    <select class="form-select select2" name="slug" id="slug">
+                                        <option value="">Pilih Nama Produk</option>
+                                        <optgroup label="Nama Produk yang tersedia">
+                                        @foreach ($stok as $s)
+                                            @if (old('stok') == $s->slug)
+                                                <option value="{{ $s->slug }}" selected>{{ $s->nama }}</option>
+                                            @else
+                                                <option value="{{ $s->slug }}">{{ $s->nama }}</option>
                                             @endif
                                         @endforeach
                                         </optgroup>

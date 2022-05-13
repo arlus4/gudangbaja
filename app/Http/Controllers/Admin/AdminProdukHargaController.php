@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AdminProdukHargaController extends Controller
 {
@@ -53,6 +54,7 @@ class AdminProdukHargaController extends Controller
     {
         $data = $request->validate([
             'stok_id' => 'required',
+            'slug' => 'required | unique:produk_hargas',
             'harga_terkini' => 'required',
             'harga_dasar' => 'required',
             'harga_supplier' => 'required',
@@ -60,7 +62,6 @@ class AdminProdukHargaController extends Controller
             'harga_retail' => 'required',
             'margin_harga_retail' => 'required',
         ]);
-        $data['user_id'] = Auth::user()->id;
         ProdukHarga::create($data);
         return redirect('/admin/produk/harga')->with('success', 'Harga telah diupdate!');
     }
@@ -68,33 +69,48 @@ class AdminProdukHargaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ProdukHarga  $produkHarga
+     * @param  \App\Models\ProdukHarga  $harga
      * @return \Illuminate\Http\Response
      */
-    public function show(ProdukHarga $produkHarga)
+    public function show(ProdukHarga $harga)
     {
-        //
+        // $harga = ProdukHarga::with('produk_stok')->get();
+        // $harga = ProdukHarga::all();
+        // $harga = DB::table('produk_stoks')
+        //     ->join('produk_hargas', 'produk_stoks.id', '=', 'produk_hargas.stok_id')
+        //     ->select('produk_hargas.*', 'produk_stoks.kode', 'produk_stoks.nama');
+        // dd($harga);
+        // return view('admin/produk/harga/show', [
+        // 'title' => "Tentang $harga",
+        // 'harga' => $harga,
+        // 'pelanggan' => $harga->pelanggan
+        // ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ProdukHarga  $produkHarga
+     * @param  \App\Models\ProdukHarga  $harga
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProdukHarga $produkHarga)
+    public function edit(ProdukHarga $harga)
     {
-        //
+        // dd($harga);
+        return view('admin/produk/harga/edit', [
+            'title' => "Edit Produk",
+            'harga' => $harga,
+            'stok' => $harga->produk_stok
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ProdukHarga  $produkHarga
+     * @param  \App\Models\ProdukHarga  $harga
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProdukHarga $produkHarga)
+    public function update(Request $request, ProdukHarga $harga)
     {
         //
     }
@@ -102,10 +118,10 @@ class AdminProdukHargaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ProdukHarga  $produkHarga
+     * @param  \App\Models\ProdukHarga  $harga
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProdukHarga $produkHarga)
+    public function destroy(ProdukHarga $harga)
     {
         //
     }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Agen;
-use App\Models\User;
 use App\Models\Kasir;
 use App\Models\Pelanggan;
 use Illuminate\Http\Request;
@@ -26,5 +25,17 @@ class AdminDashboardController extends Controller
         // $hutang_toko
         // $hutang_pabrik
         return view('admin/index', compact('pelanggan', 'kasir', 'sales', 'produk'));
+    }
+
+    public function notif()
+    {
+        return view('admin/notif', [
+            'title' => "Notifikasi"
+        ]);
+    }
+
+    public function pelanggan($pelanggan)
+    {
+        // 
     }
 }

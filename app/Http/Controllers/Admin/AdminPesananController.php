@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Pesanan;
+use App\Models\Penjualan;
 use Illuminate\Http\Request;
 
 class AdminPesananController extends Controller
@@ -16,7 +16,7 @@ class AdminPesananController extends Controller
     public function index()
     {
         return view('admin/transaksi/pesanan/index', [
-            'title' => 'Daftar Pesanan'
+            'title' => "Daftar Pesanan"
         ]);
     }
 
@@ -44,10 +44,10 @@ class AdminPesananController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pesanan  $pesanan
+     * @param  \App\Models\Penjualan  $penjualan
      * @return \Illuminate\Http\Response
      */
-    public function show(Pesanan $pesanan)
+    public function show(Penjualan $penjualan)
     {
         //
     }
@@ -55,10 +55,10 @@ class AdminPesananController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Pesanan  $pesanan
+     * @param  \App\Models\Penjualan  $penjualan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pesanan $pesanan)
+    public function edit(Penjualan $penjualan)
     {
         //
     }
@@ -67,10 +67,10 @@ class AdminPesananController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pesanan  $pesanan
+     * @param  \App\Models\Penjualan  $penjualan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pesanan $pesanan)
+    public function update(Request $request, Penjualan $penjualan)
     {
         //
     }
@@ -78,10 +78,10 @@ class AdminPesananController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pesanan  $pesanan
+     * @param  \App\Models\Penjualan  $penjualan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pesanan $pesanan)
+    public function destroy(Penjualan $penjualan)
     {
         //
     }

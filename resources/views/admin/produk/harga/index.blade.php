@@ -33,7 +33,7 @@
                                 <div class="col-md-12">
                                     <div class="card card-box">
                                         <div class="card-head">
-                                            <header>Tabel {{ $title }}(Revisi yang ditampikan hanya produk harga terupdate)</header>
+                                            <header>Tabel {{ $title }}</header>
                                             <div class="tools">
                                                 <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
                                                 <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
@@ -45,7 +45,7 @@
                                                 <div class="col-md-6 col-sm-6 col-6">
                                                     <div class="btn-group">
                                                         <a href="/admin/produk/harga/create" id="addRow1" class="btn btn-info">
-                                                            Update Harga Barang <i class="fa fa-external-link"></i>
+                                                            Tambah Harga Barang Baru <i class="fa fa-external-link"></i>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -74,8 +74,8 @@
                                                             <td>{{ $stok->harga_supplier }}</td>
                                                             <td> 
                                                                 <div class="btn-group btn-group-circle btn-group-solid">
-                                                                    <a href="#" type="button" class="btn btn-info"><i class="fa fa-info"></i></a>
-                                                                    <a href="#" type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                                                    {{-- <a href="/admin/produk/harga/{{ $stok->produk_stok->slug }}" type="button" class="btn btn-info"><i class="fa fa-info"></i></a> --}}
+                                                                    <a href="/admin/produk/harga/{{ $stok->produk_stok->slug }}/edit" type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
                                                                     <form action="#" method="POST">
                                                                         @method('delete')
                                                                         @csrf

@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Agen;
 use Illuminate\Http\Request;
-use App\Charts\MonthlyUsersChart;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -18,13 +17,13 @@ class AdminAgenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(MonthlyUsersChart $chart)
+    public function index()
     {
         $agen = Agen::where('is_agen', 'true')->get();
         return view('admin/pegawai/agen/index', [
             'title' => 'Data Sales',
             'agen' => $agen,
-            'chart' => $chart->build()
+            // 'chart' => $chart->build()
         ]);
     }
 

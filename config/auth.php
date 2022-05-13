@@ -47,11 +47,7 @@ return [
         'kasir' => [
             'driver' => 'session',
             'provider' => 'kasirs',
-        ],
-        'pelanggan' => [
-            'driver' => 'session',
-            'provider' => 'pelanggans',
-        ],
+        ]
     ],
 
     /*
@@ -83,10 +79,6 @@ return [
         'kasirs' => [
             'driver' => 'eloquent',
             'model' => App\Models\Kasir::class,
-        ],
-        'pelanggans' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Pelanggan::class,
         ],
 
         // 'users' => [
@@ -128,13 +120,7 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
-        ],
-        'pelanggans' => [
-            'provider' => 'pelanggans',
-            'table' => 'password_resets',
-            'expire' => 60,
-            'throttle' => 60,
-        ],
+        ]
     ],
 
     /*

@@ -121,8 +121,8 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="recent-report__chart">
-                                            {{-- <div id="chart1"></div> --}}
-                                            {!! $chart->container() !!}
+                                            <div id="chart1"></div>
+                                            {{-- {!! $chart->container() !!} --}}
                                         </div>
                                     </div>
                                 </div>
@@ -135,7 +135,7 @@
     </div>
 </div>
 <!-- end page content -->
-<script src="{{ $chart->cdn() }}"></script>
+{{-- <script src="{{ $chart->cdn() }}"></script>
 
-{{ $chart->script() }}
+{{ $chart->script() }} --}}
 @endsection

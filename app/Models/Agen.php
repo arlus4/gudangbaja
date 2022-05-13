@@ -2,30 +2,25 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Jetstream\HasTeams;
-use Laravel\Sanctum\HasApiTokens;
 use Cviebrock\EloquentSluggable\Sluggable;
 
 class Agen extends Authenticatable
 {
     use Sluggable;
     use HasFactory;
-    use HasApiTokens;
-    use HasFactory;
     use HasProfilePhoto;
-    use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
 
     //fungsi eager loading laravel
-    protected $with = ['users', 'pelanggan'];
-    // protected $with = ['users'];
+    protected $with = ['users'];
+
+    protected $table = 'agens';
 
     /**
      * The attributes that aren't mass assignable.
@@ -98,8 +93,8 @@ class Agen extends Authenticatable
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function pelanggan()
+    public function pelanggans()
     {
-        return $this->hasMany(Pelanggan::class);
+        return $this->hasMany(Pelanggan::class, 'agen_id');
     }
 }

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Agen;
 
-use App\Http\Controllers\Controller;
 use App\Models\Pelanggan;
+use App\Models\ProdukHarga;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AgenPelangganController extends Controller
@@ -16,8 +19,14 @@ class AgenPelangganController extends Controller
      */
     public function index()
     {
+        // $toko = Pelanggan::with(['agens', 'users'])->get();
+        // dd($toko);
+        $pelanggans = Pelanggan::where('status', '1')->get();
+        $tokos = Pelanggan::where('status', '0')->get();
         return view('agen/pelanggan/index', [
-            'title' => 'Daftar Pelanggan'
+            'title' => 'Daftar Pelanggan',
+            'pelanggans' => $pelanggans,
+            'tokos' => $tokos
         ]);
     }
 
@@ -41,7 +50,23 @@ class AgenPelangganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'kode'      => 'required | unique:pelanggans',
+            'nama'      => 'required',
+            'slug'      => 'required | unique:pelanggans',
+            'alamat'    => 'required',
+            'kontak'    => 'required',
+            'kategori'  => 'required',
+            'photo_toko'     => 'required | image | mimes:jpg,png,jpeg,gif,svg | max:2048',
+            'photo_ktp'       => 'required | image | mimes:jpg,png,jpeg,gif,svg | max:2048',
+        ]);
+
+        $data['photo_toko'] = $request->file('photo_toko')->store('profile-toko');
+        $data['photo_ktp'] = $request->file('photo_ktp')->store('ktp-toko');
+        $data['user_id'] = Auth::user()->id;
+        $data['agen_id'] = Auth::guard('agen')->user()->id;
+        Pelanggan::create($data);
+        return redirect('/agen/pelanggan')->with('success', 'Pelanggan telah ditambah!');
     }
 
     /**
@@ -52,7 +77,10 @@ class AgenPelangganController extends Controller
      */
     public function show(Pelanggan $pelanggan)
     {
-        //
+        return view('agen/pelanggan/show', [
+            'title' => 'Detail Pelanggan',
+            'pelanggan' => $pelanggan,
+        ]);
     }
 
     /**
@@ -63,7 +91,10 @@ class AgenPelangganController extends Controller
      */
     public function edit(Pelanggan $pelanggan)
     {
-        //
+        return view('agen/pelanggan/edit', [
+            'title' => "Ubah Pelanggan",
+            'pelanggan' => $pelanggan,
+        ]);
     }
 
     /**
@@ -86,7 +117,14 @@ class AgenPelangganController extends Controller
      */
     public function destroy(Pelanggan $pelanggan)
     {
-        //
+        if ($pelanggan->photo_toko) {
+            Storage::delete($pelanggan->photo_toko);
+        }
+        if ($pelanggan->photo_ktp) {
+            Storage::delete($pelanggan->photo_ktp);
+        }
+        Pelanggan::destroy($pelanggan->id);
+        return redirect('/agen/pelanggan');
     }
 
     // Fungsi Otomatisasi Slug

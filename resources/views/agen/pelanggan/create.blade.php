@@ -14,7 +14,7 @@
                         <a class="parent-item" href="/agen/dashboard">Beranda</a>&nbsp;
                         <i class="fa fa-angle-right"></i>
                     </li>
-                    <li><a class="parent-item" href="/agen/pelanggan">Daftar Pelanggan</a>&nbsp;<i class="fa fa-angle-right"></i>
+                    <li><a class="parent-item" href="/agen/pelanggan">Daftar Toko</a>&nbsp;<i class="fa fa-angle-right"></i>
                     </li>
                     <li class="active">{{ $title }}</li>
                 </ol>
@@ -32,7 +32,7 @@
                             <form method="POST" action="/agen/pelanggan" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="kode">Kode Pelanggan</label>
+                                    <label for="kode">Kode Toko</label>
                                     <input type="text" class="form-control @error('kode') is-invalid @enderror" id="kode" name="kode" value="{{ old('kode') }}" required auto-focus>
                                     @error('kode')
                                     <div class="invalid-feedback">
@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="slug">Slug (Otomatis)</label>
-                                    <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{ old('slug') }}" required>
+                                    <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{ old('slug') }}" readonly required>
                                     @error('slug')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -50,7 +50,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="nama">Nama Pelanggan</label>
+                                    <label for="nama">Nama Toko</label>
                                     <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama') }}" required>
                                     @error('nama')
                                     <div class="invalid-feedback">
@@ -59,16 +59,16 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label">Kategori Pelanggan</label>
-                                    <select class="form-select  select2">
-                                        <option value="">Pilih Kategori Pelanggan</option>
-                                        <optgroup label="Kategori Pelanggan">
+                                    <label class="control-label">Kategori Toko</label>
+                                    <select class="form-select  select2" name="kategori" id="kategori">
+                                        <option value="">Pilih Kategori Toko</option>
+                                        <optgroup label="Kategori Toko">
                                             <option value="supplier">Supplier</option>
                                             <option value="retail">Retail</option>
                                         </optgroup>
                                     </select>
                                 </div>
-                                {{-- <div class="form-group">
+                                <div class="form-group">
                                     <label for="kontak">Kontak</label>
                                     <input type="text" class="form-control @error('kontak') is-invalid @enderror" id="kontak" name="kontak" value="{{ old('kontak') }}" required>
                                     @error('kontak')
@@ -76,22 +76,7 @@
                                         {{ $message }}
                                     </div>
                                     @enderror
-                                </div> --}}
-                                {{-- <div class="form-group">
-                                    <label class="control-label">Sales </label>
-                                    <select class="form-select select2">
-                                        <option value="">Pilih Sales</option>
-                                        <optgroup label="Sales yang tersedia">
-                                        @foreach ($agen as $a)
-                                            @if (old('agen_id') == $a->id)
-                                                <option value="{{ $a->id }}" selected>{{ $a->kode }} {{ $a->nama }}</option>
-                                            @else
-                                                <option value="{{ $a->id }}">{{ $a->kode }} {{ $a->nama }}</option>
-                                            @endif
-                                        @endforeach
-                                        </optgroup>
-                                    </select>
-                                </div> --}}
+                                </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3">Photo Toko</label>
                                     <input type="file" class="default @error('photo_toko') is-invalid @enderror" id="photo_toko" name="photo_toko" multiple onchange="previewImage()">
@@ -102,7 +87,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Kartu Identitas Pelanggan</label>
+                                    <label class="control-label col-md-3">Kartu Identitas Toko</label>
                                     <input type="file" class="default @error('photo_ktp') is-invalid @enderror" id="photo_ktp" name="photo_ktp" multiple onchange="previewImage()">
                                     @error('photo_ktp')
                                     <div class="invalid-feedback">

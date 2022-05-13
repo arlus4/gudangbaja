@@ -10,11 +10,14 @@
                     <div class="page-title">{{ $title }}</div>
                 </div>
                 <ol class="breadcrumb page-breadcrumb pull-right">
-                    <li><i class="fa fa-home"></i>&nbsp;
+                    <li>
+                        <i class="fa fa-home"></i>&nbsp;
                         <a class="parent-item" href="/admin/dashboard">Beranda</a>&nbsp;
                         <i class="fa fa-angle-right"></i>
                     </li>
-                    <li><a class="parent-item" href="/admin/pegawai/agen">Daftar Sales</a>&nbsp;<i class="fa fa-angle-right"></i>
+                    <li>
+                        <a class="parent-item" href="/admin/pegawai/agen">Daftar Sales</a>&nbsp;
+                        <i class="fa fa-angle-right"></i>
                     </li>
                     <li class="active">{{ $title }}</li>
                 </ol>
@@ -42,7 +45,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="slug">Slug (Otomatis)</label>
-                                    <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{ old('slug') }}" required>
+                                    <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{ old('slug') }}" readonly required>
                                     @error('slug')
                                     <div class="invalid-feedback">
                                         {{ $message }}

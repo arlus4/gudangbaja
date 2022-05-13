@@ -49,25 +49,6 @@
                         </li>
                     </ul>
                 </li>
-                {{-- <li class="nav-item">
-                    <a href="javascript:;" class="nav-link nav-toggle">
-                        <i class="material-icons">person</i>
-                        <span class="title">Pelanggan</span>
-                        <span class="arrow"></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-plus-circle"></i> Pelanggan Baru
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/pelanggan" class="nav-link">
-                                <i class="fa fa-child"></i> Data Pelanggan
-                            </a>
-                        </li>
-                    </ul>
-                </li> --}}
                 <li class="nav-item {{ Request::is('admin/pelanggan*') ? 'active' : '' }}">
                     <a href="/admin/pelanggan" class="nav-link">
                         <i class="material-icons">person</i>
@@ -91,19 +72,19 @@
                                 <i class="fa fa-money"></i> Harga Produk 
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ Request::is('admin/produk/return/*') ? 'active open' : '' }}">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="fa fa-ban"></i> Return Produk
-                                <span class="arrow"></span>
+                                <span class="arrow {{ Request::is('admin/produk/return/*') ? 'open' : '' }}"></span>
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/admin/produk/return/pabrik" class="nav-link">
                                         <i class="fa fa-ban"></i> Produk ke Pabrik
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/admin/produk/return/pelanggan" class="nav-link">
                                         <i class="fa fa-ban"></i> Produk dari Pelanggan
                                     </a>
                                 </li>
@@ -111,21 +92,16 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ Request::is('admin/transaksi/*') ? 'active open' : '' }}">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="material-icons">add_shopping_cart</i>
                         <span class="title">Transaksi</span>
-                        <span class="arrow "></span>
+                        <span class="arrow {{ Request::is('admin/transaksi/*') ? 'open' : '' }}"></span>
                     </a>
                     <ul class="sub-menu">                        
                         <li class="nav-item">
                             <a href="/admin/transaksi/pesanan" class="nav-link">
                                 <i class="fa fa-edit"></i> Pesanan 
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/transaksi/pre_order" class="nav-link">
-                                <i class="fa fa-shopping-cart"></i> Pre-Order
                             </a>
                         </li>
                         <li class="nav-item">
@@ -204,7 +180,7 @@
                         </li>
                     </ul>
                 </li> --}}
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="material-icons">business</i>
                         <span class="title">Manajemen Cabang</span>
@@ -222,7 +198,7 @@
                             </a>
                         </li>
                     </ul>
-                </li> --}}
+                </li>
                 {{-- <li class="nav-item">
                     <a href="javascript:;" class="nav-link">
                         <i class="material-icons">build</i>

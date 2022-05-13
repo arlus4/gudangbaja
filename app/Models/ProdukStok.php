@@ -16,6 +16,8 @@ class ProdukStok extends Model
     //fungsi eager loading laravel
     protected $with = ['kasirs', 'produk_hargas'];
 
+    protected $table = 'produk_stoks';
+
     /**
      * The attributes that aren't mass assignable.
      *
@@ -48,7 +50,7 @@ class ProdukStok extends Model
         return $this->belongsTo(Kasir::class, 'kasir_id');
     }
 
-    public function produk_hargas() //model
+    public function produk_hargas()
     {
         return $this->belongsTo(ProdukHarga::class, 'stok_id');
     }
