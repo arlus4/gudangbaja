@@ -46,26 +46,26 @@ Route::get('/', function () {
 Route::get('/admin/login', [AdminLoginController::class, 'index'])->name('admin.login');
 Route::post('/admin/login', [AdminLoginController::class, 'authenticate']);
 // Route untuk Admin
-// Route::middleware(['auth:sanctum', 'verified', 'isadmin'])->group(function () {
-//     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-//     Route::get('/admin/notif', [AdminDashboardController::class, 'notif']);
-//     Route::resource('/admin/profil', AdminProfileController::class);
-//     Route::resource('/admin/pegawai/admin', AdminPegawaiController::class);
-//     Route::get('/admin/pegawai/agen/agenSlug', [AdminAgenController::class, 'agenSlug']);
-//     Route::resource('/admin/pegawai/agen', AdminAgenController::class);
-//     Route::get('/admin/pegawai/kasir/kasirSlug', [AdminKasirController::class, 'kasirSlug']);
-//     Route::resource('/admin/pegawai/kasir', AdminKasirController::class);
-//     Route::get('/admin/pelanggan/pelangganSlug', [AdminPelangganController::class, 'pelangganSlug']);
-//     Route::resource('/admin/pelanggan', AdminPelangganController::class);
-//     Route::get('/admin/pelanggan/limit/{pelanggan:slug}', [AdminPelangganController::class, 'tambahlimit'])->name('admin.pelanggan.limit');
-//     Route::patch('/admin/pelanggan/limit/{pelanggan:slug}', [AdminPelangganController::class, 'limit'])->name('admin.pelanggan.ubah');
-//     Route::resource('/admin/produk/stok', AdminProdukStokController::class);
-//     Route::resource('/admin/produk/harga', AdminProdukHargaController::class);
-//     Route::get('/admin/produk/return/pabrik', [AdminProdukReturn::class, 'pabrik']);
-//     Route::get('/admin/produk/return/pelanggan', [AdminProdukReturn::class, 'pelanggan']);
-//     Route::resource('admin/transaksi/pesanan', AdminPesananController::class);
-//     Route::patch('/admin/transaksi/approve/{pesanan:slug}', [AdminPesananController::class, 'approve'])->name('admin.transaksi.approve');
-// });
+Route::middleware(['auth:sanctum', 'verified', 'isadmin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/notif', [AdminDashboardController::class, 'notif']);
+    Route::resource('/admin/profil', AdminProfileController::class);
+    Route::resource('/admin/pegawai/admin', AdminPegawaiController::class);
+    Route::get('/admin/pegawai/agen/agenSlug', [AdminAgenController::class, 'agenSlug']);
+    Route::resource('/admin/pegawai/agen', AdminAgenController::class);
+    Route::get('/admin/pegawai/kasir/kasirSlug', [AdminKasirController::class, 'kasirSlug']);
+    Route::resource('/admin/pegawai/kasir', AdminKasirController::class);
+    Route::get('/admin/pelanggan/pelangganSlug', [AdminPelangganController::class, 'pelangganSlug']);
+    Route::resource('/admin/pelanggan', AdminPelangganController::class);
+    Route::get('/admin/pelanggan/limit/{pelanggan:slug}', [AdminPelangganController::class, 'tambahlimit'])->name('admin.pelanggan.limit');
+    Route::patch('/admin/pelanggan/limit/{pelanggan:slug}', [AdminPelangganController::class, 'limit'])->name('admin.pelanggan.ubah');
+    Route::resource('/admin/produk/stok', AdminProdukStokController::class);
+    Route::resource('/admin/produk/harga', AdminProdukHargaController::class);
+    Route::get('/admin/produk/return/pabrik', [AdminProdukReturn::class, 'pabrik']);
+    Route::get('/admin/produk/return/pelanggan', [AdminProdukReturn::class, 'pelanggan']);
+    Route::resource('admin/transaksi/pesanan', AdminPesananController::class);
+    Route::patch('/admin/transaksi/approve/{pesanan:slug}', [AdminPesananController::class, 'approve'])->name('admin.transaksi.approve');
+});
 
 // Login Sales
 Route::get('/agen/login', [AgenLoginController::class, 'index'])->name('login.agen');
