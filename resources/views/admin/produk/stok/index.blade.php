@@ -52,6 +52,7 @@
                                                             <th>Nama</th>
                                                             <th>Jumlah</th>
                                                             <th>Deskripsi</th>
+                                                            <th>Harga Awal</th>
                                                             <th>Aksi</th>
                                                         </tr>
                                                     </thead>
@@ -62,14 +63,25 @@
                                                             <td>{{ $s->nama }}</td>
                                                             <td>{{ $s->jumlah_produk }}</td>
                                                             <td>{{ $s->deskripsi }}</td>
+                                                            <td>
+                                                                @if ($s->harga_awal == NULL) 
+                                                                    <a href="{{ route('admin.produk.tambah.harga', $s->slug) }}" class="btn btn-circle btn-info">Update</a>
+                                                                @else 
+                                                                    @currency($s->harga_awal)
+                                                                @endif
+                                                            </td>
                                                             <td> 
-                                                                <div class="btn-group btn-group-circle btn-group-solid">
-                                                                    <a href="#" type="button" class="btn btn-info"><i class="fa fa-info"></i></a>
-                                                                    <a href="#" type="button" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                                                                <div class="col-md-12">
+                                                                    <a href="#" type="button" class="btn btn-circle btn-info btn-sm m-b-10">
+                                                                        <i class="fa fa-info"></i>
+                                                                    </a>
+                                                                    <a href="#" type="button" class="btn btn-circle btn-warning btn-sm m-b-10">
+                                                                        <i class="fa fa-pencil"></i>
+                                                                    </a>
                                                                     <form class="d-inline" action="#" method="POST">
                                                                         @method('delete')
                                                                         @csrf
-                                                                        <button type="submit" class="btn deepPink-bgcolor" onclick="return confirm('Apakah Anda yakin?')">
+                                                                        <button type="submit" class="btn btn-circle btn-danger btn-sm m-b-10" onclick="return confirm('Apakah Anda yakin?')">
                                                                             <i class="fa fa-trash-o"></i>
                                                                         </button>
                                                                     </form>
